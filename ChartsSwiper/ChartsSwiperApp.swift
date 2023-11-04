@@ -14,7 +14,9 @@ struct ChartsSwiperApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                // Pass the managed object context to the ContentView
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }
 }
+
