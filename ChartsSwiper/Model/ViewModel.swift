@@ -37,8 +37,12 @@ struct AlphaVantageResponse: Codable {
 struct Stock: Identifiable, Codable {
     let id = UUID()
     let symbol: String
+    let history: [StockHistory] // Array to hold all the close prices
+}
+
+struct StockHistory: Codable {
+    let date: String
     let close: String
-    let volume: String
 }
 
 // View Model
@@ -47,40 +51,56 @@ class StockViewModel: ObservableObject {
 
     func fetchData() {
         // Replace with your actual API key
-        let apiKey = "I4PVPPK8S4HRN8RA"
+        let apiKey = "demo"
         
-        // Define the API URL
-        let urlString = "https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=IBM&apikey=\(apiKey)"
+        // List of stock symbols
+        let largeCaps = [
+            "AAPL", "MSFT", "AMZN", "GOOGL", "GOOG",
+            "FB", "BRK.B", "JNJ", "TSLA", "V",
+            "PG", "JPM", "NVDA", "MA", "UNH",
+            "HD", "DIS", "BAC", "ADBE", "PYPL"
+        ]
         
-        // Create a URL object
-        if let url = URL(string: urlString) {
-            // Create a URLSession task to fetch the data
-            URLSession.shared.dataTask(with: url) { data, response, error in
-                if let data = data {
-                    do {
-                        // Parse the JSON data
-                        let decoder = JSONDecoder()
-                        let response = try decoder.decode(AlphaVantageResponse.self, from: data)
-                        
-                        // Get the latest day's close price
-                        if let latestDay = response.timeSeries.keys.sorted().last,
-                           let timeSeriesData = response.timeSeries[latestDay] {
-                            print("Latest close price on \(latestDay): \(timeSeriesData.close)")
+        // Create a URLSession for making API requests
+        let session = URLSession.shared
+        
+        // Loop through each stock symbol and fetch data
+        for symbol in largeCaps {
+            // Define the API URL for the current stock symbol
+            let urlString = "https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=\(symbol)&apikey=\(apiKey)"
+            
+            // Create a URL object
+            if let url = URL(string: urlString) {
+                // Create a URLSession task to fetch the data
+                session.dataTask(with: url) { data, response, error in
+                    if let data = data {
+                        do {
+                            // Parse the JSON data
+                            let decoder = JSONDecoder()
+                            let response = try decoder.decode(AlphaVantageResponse.self, from: data)
                             
-                            // You can update your UI here with the latest close price
+                            // Iterate over all the dates in the response
+                            var stockHistory: [StockHistory] = []
+                            for (date, timeSeriesData) in response.timeSeries {
+                                stockHistory.append(StockHistory(date: date, close: timeSeriesData.close))
+                            }
+                            
+                            // Sort the history based on date
+                            stockHistory.sort { $0.date > $1.date }
+                            
+                            // You can update your UI here with the stock history
                             DispatchQueue.main.async {
                                 // Update UI elements
-                                let stock = Stock(symbol: response.metaData.symbol, close: timeSeriesData.close, volume: timeSeriesData.volume)
-                                self.stocks.append(stock)
+                                self.stocks.append(Stock(symbol: symbol, history: stockHistory))
                             }
+                            
+                        } catch {
+                            print(error)
                         }
-                    } catch {
-                        print("Error parsing JSON: \(error.localizedDescription)")
                     }
-                } else if let error = error {
-                    print("Error fetching data: \(error.localizedDescription)")
-                }
-            }.resume() // Don't forget to call resume on the task
+                }.resume()
+            }
         }
     }
 }
+

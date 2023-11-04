@@ -10,7 +10,7 @@ import SwiftUI
 struct CardView: View {
     var stock: Stock
     @State private var offset = CGSize.zero
-    @State private var color: Color = .black
+    @State private var color: Color = .yellow
  
     
     var body: some View {
@@ -24,7 +24,7 @@ struct CardView: View {
                 .foregroundColor(color.opacity(0.9))
                 .shadow(radius: 4)
             HStack {
-                Text(stock.close)
+                Text(stock.history[0].close)
                 Text(stock.symbol)
                     .font(.largeTitle)
                     .foregroundColor(.white)
@@ -76,7 +76,7 @@ struct CardView: View {
         case 130...500:
             color = .green
         default:
-            color = .black
+            color = .yellow
         }
     }
 

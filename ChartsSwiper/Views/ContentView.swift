@@ -16,8 +16,10 @@ struct ContentView: View {
             .onAppear{
                 viewModel.fetchData()
             }
-        }
+        Text("Demo Data: AlphaVantage.co, No commercial use")
 
+        }
+    
 }
     
 
