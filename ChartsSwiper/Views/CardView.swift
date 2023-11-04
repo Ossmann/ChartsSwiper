@@ -38,6 +38,15 @@ struct CardView: View {
                         .interpolationMethod(.catmullRom) // Optional: Smooths the line
                     }
                 }
+                // display dates on x achsis (To DO)
+                
+                //display $ signs on y achsis
+                .chartYAxis {
+                    AxisMarks(preset: .extended, position: .leading, values: .automatic) {
+                        AxisGridLine()
+                        AxisValueLabel(format: .currency(code: "USD"))
+                    }
+                }
                 .frame(width: 260, height: 200) // Adjust chart size
             }
         }
