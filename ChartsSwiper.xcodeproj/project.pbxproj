@@ -16,6 +16,7 @@
 		8011C5B22AF5D64D00292467 /* ChartsSwiperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8011C5B12AF5D64D00292467 /* ChartsSwiperTests.swift */; };
 		8011C5BC2AF5D64D00292467 /* ChartsSwiperUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8011C5BB2AF5D64D00292467 /* ChartsSwiperUITests.swift */; };
 		8011C5BE2AF5D64D00292467 /* ChartsSwiperUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8011C5BD2AF5D64D00292467 /* ChartsSwiperUITestsLaunchTests.swift */; };
+		8011C5CB2AF5D9FE00292467 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8011C5CA2AF5D9FE00292467 /* CardView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,7 @@
 		8011C5B72AF5D64D00292467 /* ChartsSwiperUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChartsSwiperUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8011C5BB2AF5D64D00292467 /* ChartsSwiperUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartsSwiperUITests.swift; sourceTree = "<group>"; };
 		8011C5BD2AF5D64D00292467 /* ChartsSwiperUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartsSwiperUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		8011C5CA2AF5D9FE00292467 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +106,7 @@
 				8011C5A42AF5D64D00292467 /* Persistence.swift */,
 				8011C5A62AF5D64D00292467 /* ChartsSwiper.xcdatamodeld */,
 				8011C5A12AF5D64D00292467 /* Preview Content */,
+				8011C5CA2AF5D9FE00292467 /* CardView.swift */,
 			);
 			path = ChartsSwiper;
 			sourceTree = "<group>";
@@ -267,6 +270,7 @@
 				8011C5A52AF5D64D00292467 /* Persistence.swift in Sources */,
 				8011C59E2AF5D64C00292467 /* ContentView.swift in Sources */,
 				8011C59C2AF5D64C00292467 /* ChartsSwiperApp.swift in Sources */,
+				8011C5CB2AF5D9FE00292467 /* CardView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
