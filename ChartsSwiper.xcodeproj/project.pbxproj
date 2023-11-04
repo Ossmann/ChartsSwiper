@@ -20,6 +20,8 @@
 		8011C5CE2AF6471D00292467 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8011C5CD2AF6471D00292467 /* ViewController.swift */; };
 		8011C5D02AF647D100292467 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8011C5CF2AF647D100292467 /* ViewModel.swift */; };
 		8011C5D32AF6DDCA00292467 /* InvestmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8011C5D22AF6DDCA00292467 /* InvestmentView.swift */; };
+		8011C5D52AF6ECE000292467 /* westpac_icon in Resources */ = {isa = PBXBuildFile; fileRef = 8011C5D42AF6ECE000292467 /* westpac_icon */; };
+		8011C5D72AF6ED2D00292467 /* westpaccomau-icon.svg in Resources */ = {isa = PBXBuildFile; fileRef = 8011C5D62AF6ED2D00292467 /* westpaccomau-icon.svg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +58,8 @@
 		8011C5CD2AF6471D00292467 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		8011C5CF2AF647D100292467 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		8011C5D22AF6DDCA00292467 /* InvestmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvestmentView.swift; sourceTree = "<group>"; };
+		8011C5D42AF6ECE000292467 /* westpac_icon */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = westpac_icon; sourceTree = "<group>"; };
+		8011C5D62AF6ED2D00292467 /* westpaccomau-icon.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "westpaccomau-icon.svg"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +124,8 @@
 		8011C5A12AF5D64D00292467 /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
+				8011C5D62AF6ED2D00292467 /* westpaccomau-icon.svg */,
+				8011C5D42AF6ECE000292467 /* westpac_icon */,
 				8011C5A22AF5D64D00292467 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
@@ -266,6 +272,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				8011C5A32AF5D64D00292467 /* Preview Assets.xcassets in Resources */,
+				8011C5D72AF6ED2D00292467 /* westpaccomau-icon.svg in Resources */,
+				8011C5D52AF6ECE000292467 /* westpac_icon in Resources */,
 				8011C5A02AF5D64D00292467 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

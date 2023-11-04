@@ -4,7 +4,7 @@ import SwiftUI
 struct CardView: View {
     var stock: Stock
     @State private var offset = CGSize.zero
-    @State private var color: Color = .yellow
+    @State private var color: Color = .white
     
     var body: some View {
         // arrange the cards of Stocks with Charts in a ZStack atop of each other
@@ -18,15 +18,11 @@ struct CardView: View {
                 .shadow(radius: 4)
             
             VStack {
-                HStack {
-                    Text(stock.history[0].close)
-                    Text(stock.symbol)
-                        .font(.largeTitle)
-                        .foregroundColor(.white)
-                        .bold()
-                    Image(systemName: "heart.fill")
-                        .foregroundColor(.red)
-                }
+                Text(stock.symbol)
+                    .font(.largeTitle)
+                    .bold()
+                Text("Price: $\(stock.history[0].close)")
+
                 
                 // Create the Chart
                 Chart {
@@ -94,7 +90,7 @@ struct CardView: View {
         case 130...500:
             color = .green
         default:
-            color = .yellow
+            color = .white
         }
     }
 }

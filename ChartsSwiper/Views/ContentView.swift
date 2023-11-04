@@ -21,13 +21,12 @@ struct ContentView: View {
                     NavigationLink(destination: InvestmentView()) {
                         ZStack {
                             Text("Explore Investments")
-                                .foregroundColor(.white)
                                 .frame(maxWidth: .infinity, alignment: .center)
                             HStack {
                                 Spacer() // Pushes the arrow to the right
                                 Image(systemName: "arrow.right.circle.fill")
                                     .font(.largeTitle)
-                                    .foregroundColor(.white)
+                                    .foregroundColor(Color(red: 0.855, green: 0.09, blue: 0.063)) // #da1710
                                     .offset(x: animate ? 10 : 0)
                                     .animation(Animation.easeInOut(duration: 0.8).repeatForever(autoreverses: true), value: animate)
                                     .onAppear {
@@ -39,25 +38,33 @@ struct ContentView: View {
                 }
                 .padding()
                 .frame(maxWidth: .infinity)
-                .background(Color.purple)
-                .foregroundColor(.white)
+                .foregroundColor(.black)
+                .background(.white)
                 .cornerRadius(5)
                 
                 Spacer()
                 
-                // Sign In Button
-                Button("Sign in") {
-                    // Action for sign in
-                }
-                .foregroundColor(.white)
-                .padding()
-                .background(Color.pink)
-                .cornerRadius(5)
+                // WestPac Logo
+                Image("westpaccomau-icon")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 200, height: 200)
 
+                Spacer()
+                HStack {
+                    Image(systemName: "c.circle")
+                    Text("Jakob Ossmann")
+                }
+                    .font(.footnote) // This makes the font smaller
                 Spacer()
             }
             .padding(.horizontal) // This will ensure the padding is uniform on both sides
-            .background(Color(red: 255/255, green: 105/255, blue: 180/255))
+            .background(
+                LinearGradient(gradient: Gradient(colors: [Color(red: 153/255, green: 0, blue: 0), Color(red: 153/255, green: 26/255, blue: 214/255)]),
+                               startPoint: .topLeading,
+                               endPoint: .bottomTrailing)
+                    .edgesIgnoringSafeArea(.all)
+            )
             .edgesIgnoringSafeArea(.all)
         }
     }
