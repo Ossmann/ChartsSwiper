@@ -8,9 +8,10 @@
 import SwiftUI
 
 struct CardView: View {
-    var person: String
+    var stock: Stock
     @State private var offset = CGSize.zero
     @State private var color: Color = .black
+ 
     
     var body: some View {
         // arrage the cards of Stocks with Charts in a Zstack atop of each other
@@ -23,7 +24,8 @@ struct CardView: View {
                 .foregroundColor(color.opacity(0.9))
                 .shadow(radius: 4)
             HStack {
-                Text(person)
+                Text(stock.close)
+                Text(stock.symbol)
                     .font(.largeTitle)
                     .foregroundColor(.white)
                     .bold()
@@ -55,11 +57,11 @@ struct CardView: View {
         switch width {
         //Swipe left to dismiss a stock
         case -500...(-150):
-            print("\(person) removed")
+            print("\(stock.symbol) removed")
             offset = CGSize(width: -500, height: 0)
         //Swipe right to add a new stock to the Watchlist
         case 150...(500):
-            print("\(person) added")
+            print("\(stock.symbol) added")
             offset = CGSize(width: 500, height: 0)
         default:
             offset = .zero
@@ -77,12 +79,13 @@ struct CardView: View {
             color = .black
         }
     }
-    
-    
-}
 
-struct CardView_Previews: PreviewProvider {
-    static var previews: some View {
-        CardView(person: "Mario")
-    }
+    
+    
 }
+//
+//struct CardView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        CardView(security: stock.symbol)
+//    }
+//}

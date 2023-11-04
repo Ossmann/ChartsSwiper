@@ -17,6 +17,8 @@
 		8011C5BC2AF5D64D00292467 /* ChartsSwiperUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8011C5BB2AF5D64D00292467 /* ChartsSwiperUITests.swift */; };
 		8011C5BE2AF5D64D00292467 /* ChartsSwiperUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8011C5BD2AF5D64D00292467 /* ChartsSwiperUITestsLaunchTests.swift */; };
 		8011C5CB2AF5D9FE00292467 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8011C5CA2AF5D9FE00292467 /* CardView.swift */; };
+		8011C5CE2AF6471D00292467 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8011C5CD2AF6471D00292467 /* ViewController.swift */; };
+		8011C5D02AF647D100292467 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8011C5CF2AF647D100292467 /* ViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +52,8 @@
 		8011C5BB2AF5D64D00292467 /* ChartsSwiperUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartsSwiperUITests.swift; sourceTree = "<group>"; };
 		8011C5BD2AF5D64D00292467 /* ChartsSwiperUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartsSwiperUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		8011C5CA2AF5D9FE00292467 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		8011C5CD2AF6471D00292467 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		8011C5CF2AF647D100292467 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,13 +104,13 @@
 		8011C59A2AF5D64C00292467 /* ChartsSwiper */ = {
 			isa = PBXGroup;
 			children = (
+				8011C5D12AF647DE00292467 /* Model */,
+				8011C5CC2AF5FA4600292467 /* Views */,
 				8011C59B2AF5D64C00292467 /* ChartsSwiperApp.swift */,
-				8011C59D2AF5D64C00292467 /* ContentView.swift */,
 				8011C59F2AF5D64D00292467 /* Assets.xcassets */,
 				8011C5A42AF5D64D00292467 /* Persistence.swift */,
 				8011C5A62AF5D64D00292467 /* ChartsSwiper.xcdatamodeld */,
 				8011C5A12AF5D64D00292467 /* Preview Content */,
-				8011C5CA2AF5D9FE00292467 /* CardView.swift */,
 			);
 			path = ChartsSwiper;
 			sourceTree = "<group>";
@@ -134,6 +138,24 @@
 				8011C5BD2AF5D64D00292467 /* ChartsSwiperUITestsLaunchTests.swift */,
 			);
 			path = ChartsSwiperUITests;
+			sourceTree = "<group>";
+		};
+		8011C5CC2AF5FA4600292467 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				8011C5CD2AF6471D00292467 /* ViewController.swift */,
+				8011C59D2AF5D64C00292467 /* ContentView.swift */,
+				8011C5CA2AF5D9FE00292467 /* CardView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		8011C5D12AF647DE00292467 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8011C5CF2AF647D100292467 /* ViewModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -266,11 +288,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8011C5CE2AF6471D00292467 /* ViewController.swift in Sources */,
 				8011C5A82AF5D64D00292467 /* ChartsSwiper.xcdatamodeld in Sources */,
 				8011C5A52AF5D64D00292467 /* Persistence.swift in Sources */,
 				8011C59E2AF5D64C00292467 /* ContentView.swift in Sources */,
 				8011C59C2AF5D64C00292467 /* ChartsSwiperApp.swift in Sources */,
 				8011C5CB2AF5D9FE00292467 /* CardView.swift in Sources */,
+				8011C5D02AF647D100292467 /* ViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
