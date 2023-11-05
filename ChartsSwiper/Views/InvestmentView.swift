@@ -10,6 +10,7 @@ struct InvestmentView: View {
 
 
     var body: some View {
+        
             VStack {
                 HStack {
                     Image(systemName: "square.stack")
@@ -37,6 +38,16 @@ struct InvestmentView: View {
         
         Text("Demo Data: AlphaVantage.co, No commercial use")
             .font(.footnote) // This makes the font smaller
+        
+        
+        // Navigation link to Watchlist
+        NavigationLink(destination: WatchListView(stocks: viewModel.stocks)) {
+                        Text("To My Watchlist")
+                            .foregroundColor(.blue)
+                            .padding()
+                            .background(Color.gray.opacity(0.2))
+                            .cornerRadius(10)
+                    }
 
         }
     
