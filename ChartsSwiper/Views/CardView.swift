@@ -16,7 +16,9 @@ struct CardView: View {
                 .cornerRadius(4)
                 .foregroundColor(color.opacity(0.9))
                 .shadow(radius: 4)
-            
+            //make one card stand out
+                .offset(x: stock.symbol == "MSFT" ? 8 : 0, y: stock.symbol == "MSFT" ? -8 : 0)
+
             VStack {
                 Text(stock.symbol)
                     .font(.largeTitle)

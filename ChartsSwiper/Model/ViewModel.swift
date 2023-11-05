@@ -51,14 +51,12 @@ class StockViewModel: ObservableObject {
 
     func fetchData() {
         // Replace with your actual API key
-        let apiKey = "demo"
+        let apiKey = "TXKSKIKJH52HMBB6"
         
         // List of stock symbols
         let largeCaps = [
-            "AAPL", "MSFT", "AMZN", "GOOGL", "GOOG",
-            "FB", "BRK.B", "JNJ", "TSLA", "V",
-            "PG", "JPM", "NVDA", "MA", "UNH",
-            "HD", "DIS", "BAC", "ADBE", "PYPL"
+            "AAPL", "MSFT", "AMZN", "GOOGL",
+            "FB", "PG", "TSLA"
         ]
         
         // Create a URLSession for making API requests

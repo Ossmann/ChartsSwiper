@@ -22,6 +22,7 @@
 		8011C5D32AF6DDCA00292467 /* InvestmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8011C5D22AF6DDCA00292467 /* InvestmentView.swift */; };
 		8011C5D52AF6ECE000292467 /* westpac_icon in Resources */ = {isa = PBXBuildFile; fileRef = 8011C5D42AF6ECE000292467 /* westpac_icon */; };
 		8011C5D72AF6ED2D00292467 /* westpaccomau-icon.svg in Resources */ = {isa = PBXBuildFile; fileRef = 8011C5D62AF6ED2D00292467 /* westpaccomau-icon.svg */; };
+		806845DC2AF71A1A005844EF /* animation_lokporsa.json in Resources */ = {isa = PBXBuildFile; fileRef = 806845DB2AF71A1A005844EF /* animation_lokporsa.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +61,7 @@
 		8011C5D22AF6DDCA00292467 /* InvestmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvestmentView.swift; sourceTree = "<group>"; };
 		8011C5D42AF6ECE000292467 /* westpac_icon */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = westpac_icon; sourceTree = "<group>"; };
 		8011C5D62AF6ED2D00292467 /* westpaccomau-icon.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "westpaccomau-icon.svg"; sourceTree = "<group>"; };
+		806845DB2AF71A1A005844EF /* animation_lokporsa.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = animation_lokporsa.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +126,7 @@
 		8011C5A12AF5D64D00292467 /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
+				806845DB2AF71A1A005844EF /* animation_lokporsa.json */,
 				8011C5D62AF6ED2D00292467 /* westpaccomau-icon.svg */,
 				8011C5D42AF6ECE000292467 /* westpac_icon */,
 				8011C5A22AF5D64D00292467 /* Preview Assets.xcassets */,
@@ -183,6 +186,8 @@
 			dependencies = (
 			);
 			name = ChartsSwiper;
+			packageProductDependencies = (
+			);
 			productName = ChartsSwiper;
 			productReference = 8011C5982AF5D64C00292467 /* ChartsSwiper.app */;
 			productType = "com.apple.product-type.application";
@@ -255,6 +260,8 @@
 				Base,
 			);
 			mainGroup = 8011C58F2AF5D64C00292467;
+			packageReferences = (
+			);
 			productRefGroup = 8011C5992AF5D64C00292467 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -271,6 +278,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				806845DC2AF71A1A005844EF /* animation_lokporsa.json in Resources */,
 				8011C5A32AF5D64D00292467 /* Preview Assets.xcassets in Resources */,
 				8011C5D72AF6ED2D00292467 /* westpaccomau-icon.svg in Resources */,
 				8011C5D52AF6ECE000292467 /* westpac_icon in Resources */,
