@@ -23,7 +23,7 @@ struct CardView: View {
                 Text(stock.symbol)
                     .font(.largeTitle)
                     .bold()
-                Text("Price: $\(stock.history[0].close)")
+                Text("Price: $\(stock.regularMarketPrice)")
 
                 
 //                // Create the Chart

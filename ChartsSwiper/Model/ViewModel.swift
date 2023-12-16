@@ -3,6 +3,7 @@ import UIKit
 struct YahooFinanceResponse: Codable {
     struct MetaData: Codable {
         let symbol: String
+        let regularMarketPrice: Double
     }
             
     struct Item: Codable {
@@ -27,6 +28,7 @@ struct YahooFinanceResponse: Codable {
 struct Stock: Identifiable, Codable {
     let id = UUID()
     let symbol: String
+    let regularMarketPrice: Double
     let history: [StockHistory] // Array to hold all the close prices
 }
 
@@ -87,6 +89,8 @@ class StockViewModel: ObservableObject {
                             // Decode the JSON as a dictionary with timestamps as keys
                             let responseDict = try decoder.decode(YahooFinanceResponse.self, from: data)
                             
+                            // Declare regularMarketPrice here
+                            let regularMarketPrice = responseDict.meta.regularMarketPrice
                             
                             // Now, financeResponse.body is a dictionary where the key is a string (UNIX timestamp)
                             for (timestampString, item) in responseDict.body {
@@ -94,7 +98,6 @@ class StockViewModel: ObservableObject {
                                     
                                     print(item.close)
                                     print("Test Console DATA")
-
                                     
                                     // Append StockHistory object
                                     stockHistory.append(StockHistory(
@@ -112,7 +115,7 @@ class StockViewModel: ObservableObject {
                             // You can update your UI here with the stock history
                             DispatchQueue.main.async {
                                 // Update UI elements
-                                self.stocks.append(Stock(symbol: symbol, history: stockHistory))
+                                self.stocks.append(Stock(symbol: symbol, regularMarketPrice: regularMarketPrice, history: stockHistory))
                             }
                         } catch {
                             print(error)
