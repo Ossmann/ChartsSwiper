@@ -1,36 +1,26 @@
 import UIKit
 
-struct AlphaVantageResponse: Codable {
+struct YahooFinanceResponse: Codable {
     struct MetaData: Codable {
         let symbol: String
-
-        enum CodingKeys: String, CodingKey {
-            case symbol = "2. Symbol"
-        }
     }
-
-    struct TimeSeries: Codable {
-        let open: String
-        let high: String
-        let low: String
-        let close: String
-        let volume: String
-
-        enum CodingKeys: String, CodingKey {
-            case open = "1. open"
-            case high = "2. high"
-            case low = "3. low"
-            case close = "4. close"
-            case volume = "5. volume"
-        }
+            
+    struct Item: Codable {
+        let date: String
+        let date_utc: Int
+        let open: Double
+        let high: Double
+        let low: Double
+        let close: Double
+        let volume: Int
     }
-
-    let metaData: MetaData
-    let timeSeries: [String: TimeSeries]
+    
+    let meta: MetaData
+    let body: [String: Item]
 
     enum CodingKeys: String, CodingKey {
-        case metaData = "Meta Data"
-        case timeSeries = "Time Series (Daily)"
+        case meta
+        case body
     }
 }
 
@@ -41,8 +31,13 @@ struct Stock: Identifiable, Codable {
 }
 
 struct StockHistory: Codable {
+    let timestamp: Int
     let date: String
-    let close: String
+    let open: Double
+    let high: Double
+    let low: Double
+    let close: Double
+    let volume: Int
 }
 
 // View Model
@@ -50,55 +45,82 @@ class StockViewModel: ObservableObject {
     @Published var stocks: [Stock] = []
 
     func fetchData() {
+        print("Console Check 1")
         // Replace with your actual API key
-        let apiKey = "TXKSKIKJH52HMBB6"
+        let apiKey = "c1dad428bbmsh5e5394b0b725461p153502jsn65a9f852101b"
         
         // List of stock symbols
         let largeCaps = [
-            "AAPL", "MSFT", "AMZN", "GOOGL",
-            "FB", "PG", "TSLA"
+            "AAPL"
         ]
         
         // Create a URLSession for making API requests
         let session = URLSession.shared
         
+        print("Console Check 2")
         // Loop through each stock symbol and fetch data
         for symbol in largeCaps {
             // Define the API URL for the current stock symbol
-            let urlString = "https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=\(symbol)&apikey=\(apiKey)"
+            let urlString = "https://yahoo-finance15.p.rapidapi.com/api/v1/markets/stock/history?symbol=\(symbol)&interval=1d&diffandsplits=false"
             
+            print("Console Check 3")
             // Create a URL object
             if let url = URL(string: urlString) {
+                // Create a URLRequest with headers
+                var request = URLRequest(url: url)
+                request.httpMethod = "GET"
+                request.setValue(apiKey, forHTTPHeaderField: "X-RapidAPI-Key")
+                request.setValue("yahoo-finance15.p.rapidapi.com", forHTTPHeaderField: "X-RapidAPI-Host")
+                
+                print("Console Check 4")
                 // Create a URLSession task to fetch the data
-                session.dataTask(with: url) { data, response, error in
+                session.dataTask(with: request) { data, response, error in
+
+                    
+                    print("Console Check 5")
                     if let data = data {
                         do {
                             // Parse the JSON data
                             let decoder = JSONDecoder()
-                            let response = try decoder.decode(AlphaVantageResponse.self, from: data)
-                            
-                            // Iterate over all the dates in the response
                             var stockHistory: [StockHistory] = []
-                            for (date, timeSeriesData) in response.timeSeries {
-                                stockHistory.append(StockHistory(date: date, close: timeSeriesData.close))
-                            }
+
+                            // Decode the JSON as a dictionary with timestamps as keys
+                            let responseDict = try decoder.decode(YahooFinanceResponse.self, from: data)
                             
-                            // Sort the history based on date
-                            stockHistory.sort { $0.date > $1.date }
+                            
+                            // Now, financeResponse.body is a dictionary where the key is a string (UNIX timestamp)
+                            for (timestampString, item) in responseDict.body {
+                                if let timestamp = Int(timestampString) {
+                                    
+                                    print(item.close)
+                                    print("Test Console DATA")
+
+                                    
+                                    // Append StockHistory object
+                                    stockHistory.append(StockHistory(
+                                        timestamp: timestamp,
+                                        date: item.date,
+                                        open: item.open,
+                                        high: item.high,
+                                        low: item.low,
+                                        close: item.close,
+                                        volume: item.volume
+                                    ))
+                                }
+                            }
                             
                             // You can update your UI here with the stock history
                             DispatchQueue.main.async {
                                 // Update UI elements
                                 self.stocks.append(Stock(symbol: symbol, history: stockHistory))
                             }
-                            
                         } catch {
                             print(error)
                         }
                     }
                 }.resume()
+
             }
         }
     }
 }
-

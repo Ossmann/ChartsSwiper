@@ -26,7 +26,7 @@ struct CardView: View {
                 Text("Price: $\(stock.history[0].close)")
 
                 
-                // Create the Chart
+//                // Create the Chart
                 Chart {
                     ForEach(stock.history, id: \.date) { history in
                         AreaMark(
@@ -36,7 +36,7 @@ struct CardView: View {
                         .interpolationMethod(.catmullRom) // Optional: Smooths the line
                     }
                 }
-                // display dates on x achsis (To DO)
+//                 display dates on x achsis (To DO)
                 
                 //display $ signs on y achsis
                 .chartYAxis {
