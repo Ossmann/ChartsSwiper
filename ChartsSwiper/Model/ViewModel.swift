@@ -9,9 +9,9 @@ struct YahooFinanceResponse: Codable {
     struct Item: Codable {
         let date: String
         let date_utc: Int
-        let open: Double
-        let high: Double
-        let low: Double
+//        let open: Double
+//        let high: Double
+//        let low: Double
         let close: Double
         let volume: Int
     }
@@ -35,9 +35,9 @@ struct Stock: Identifiable, Codable {
 struct StockHistory: Codable {
     let timestamp: Int
     let date: String
-    let open: Double
-    let high: Double
-    let low: Double
+//    let open: Double
+//    let high: Double
+//    let low: Double
     let close: Double
     let volume: Int
 }
@@ -92,20 +92,23 @@ class StockViewModel: ObservableObject {
                             // Declare regularMarketPrice here
                             let regularMarketPrice = responseDict.meta.regularMarketPrice
                             
+                            //Take only last 30 timestamps
+                            let timestampItems = Array(responseDict.body.keys.sorted())
+                            let last3Timestamps = Array(timestampItems.suffix(60))
+                            
                             // Now, financeResponse.body is a dictionary where the key is a string (UNIX timestamp)
-                            for (timestampString, item) in responseDict.body {
-                                if let timestamp = Int(timestampString) {
+                            for timestampString in last3Timestamps {
+                                if let item = responseDict.body[timestampString], let timestamp = Int(timestampString) {
                                     
-                                    print(item.close)
-                                    print("Test Console DATA")
+                                    print(item)
                                     
                                     // Append StockHistory object
                                     stockHistory.append(StockHistory(
                                         timestamp: timestamp,
                                         date: item.date,
-                                        open: item.open,
-                                        high: item.high,
-                                        low: item.low,
+//                                        open: item.open,
+//                                        high: item.high,
+//                                        low: item.low,
                                         close: item.close,
                                         volume: item.volume
                                     ))
@@ -125,5 +128,14 @@ class StockViewModel: ObservableObject {
 
             }
         }
+    }
+}
+
+class WatchlistViewModel: ObservableObject {
+    static let shared = WatchlistViewModel()
+    @Published var watchlist: [Stock] = []
+    
+    func addStock(stock: Stock) {
+        watchlist.append(stock)
     }
 }

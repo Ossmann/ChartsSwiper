@@ -5,8 +5,16 @@ struct CardView: View {
     var stock: Stock
     @State private var offset = CGSize.zero
     @State private var color: Color = .white
+    @EnvironmentObject var watchlistViewModel: WatchlistViewModel
+    
+    var displayedDates: [String] {
+            stock.history.enumerated().compactMap { index, history in
+                index % 10 == 0 ? history.date : nil
+            }
+        }
     
     var body: some View {
+        
         // arrange the cards of Stocks with Charts in a ZStack atop of each other
         ZStack {
             // format the cards
@@ -37,6 +45,19 @@ struct CardView: View {
                     }
                 }
 //                 display dates on x achsis (To DO)
+                
+                //display only every 10th date on X Achsis
+                .chartXAxis {
+                    AxisMarks(values: .automatic) { value in
+                        if let date = value.as(String.self), displayedDates.contains(date) {
+                            AxisValueLabel()
+                        }
+//                        else {
+////                            AxisTick(hidden: true)
+//                            AxisValueLabel(hidden: true)
+//                        }
+                    }
+                }
                 
                 //display $ signs on y achsis
                 .chartYAxis {
@@ -78,6 +99,7 @@ struct CardView: View {
         // Swipe right to add a new stock to the Watchlist
         case 150...500:
             print("\(stock.symbol) added")
+            watchlistViewModel.addStock(stock: stock)
             offset = CGSize(width: 500, height: 0)
         default:
             offset = .zero

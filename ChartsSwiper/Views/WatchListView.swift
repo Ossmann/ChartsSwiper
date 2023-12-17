@@ -8,19 +8,15 @@
 import SwiftUI
 
 struct WatchListView: View {
-    var stocks: [Stock]
-
-        init(stocks: [Stock]) {
-            self.stocks = stocks
-        }
-
-
+    @EnvironmentObject var watchlistViewModel: WatchlistViewModel
+    
     var body: some View {
-        List {
-            ForEach(stocks) { stock in
-                ListRowView(stock: stock)
-            }
+        // Display the stocks in the watchlist
+        List(watchlistViewModel.watchlist) { stock in
+            Text(stock.symbol)
+            Text("\(stock.regularMarketPrice)")
         }
     }
 }
+
 

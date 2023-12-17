@@ -41,7 +41,7 @@ struct InvestmentView: View {
         
         
         // Navigation link to Watchlist
-        NavigationLink(destination: WatchListView(stocks: viewModel.stocks)) {
+        NavigationLink(destination: WatchListView()) {
                         Text("To My Watchlist")
                             .foregroundColor(.blue)
                             .padding()
