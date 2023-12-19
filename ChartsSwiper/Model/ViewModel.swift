@@ -46,10 +46,22 @@ struct StockHistory: Codable {
 class StockViewModel: ObservableObject {
     @Published var stocks: [Stock] = []
 
+    func fetchAPIKey() -> String? {
+        guard let path = Bundle.main.path(forResource: "Config", ofType: "plist"),
+              let dict = NSDictionary(contentsOfFile: path) as? [String: AnyObject] else {
+            return nil
+        }
+        return dict["APIKey"] as? String
+    }
+
     func fetchData() {
-        print("Console Check 1")
-        // Replace with your actual API key
-        let apiKey = "c1dad428bbmsh5e5394b0b725461p153502jsn65a9f852101b"
+        guard let apiKey = fetchAPIKey() else {
+            print("API Key not found")
+            return
+        }
+        // Use apiKey here
+        print("API Key: \(apiKey)")
+    
         
         // List of stock symbols
         let largeCaps = [

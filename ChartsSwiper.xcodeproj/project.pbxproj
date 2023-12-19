@@ -22,6 +22,7 @@
 		8011C5D32AF6DDCA00292467 /* InvestmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8011C5D22AF6DDCA00292467 /* InvestmentView.swift */; };
 		8011C5D52AF6ECE000292467 /* westpac_icon in Resources */ = {isa = PBXBuildFile; fileRef = 8011C5D42AF6ECE000292467 /* westpac_icon */; };
 		8011C5D72AF6ED2D00292467 /* westpaccomau-icon.svg in Resources */ = {isa = PBXBuildFile; fileRef = 8011C5D62AF6ED2D00292467 /* westpaccomau-icon.svg */; };
+		802685C32B312CF600370F61 /* Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = 802685C22B312CF600370F61 /* Config.plist */; };
 		806845DE2AF7248C005844EF /* WatchListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806845DD2AF7248C005844EF /* WatchListView.swift */; };
 		806845E02AF7252A005844EF /* ListRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806845DF2AF7252A005844EF /* ListRowView.swift */; };
 /* End PBXBuildFile section */
@@ -62,6 +63,7 @@
 		8011C5D22AF6DDCA00292467 /* InvestmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvestmentView.swift; sourceTree = "<group>"; };
 		8011C5D42AF6ECE000292467 /* westpac_icon */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = westpac_icon; sourceTree = "<group>"; };
 		8011C5D62AF6ED2D00292467 /* westpaccomau-icon.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "westpaccomau-icon.svg"; sourceTree = "<group>"; };
+		802685C22B312CF600370F61 /* Config.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Config.plist; sourceTree = "<group>"; };
 		806845DD2AF7248C005844EF /* WatchListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchListView.swift; sourceTree = "<group>"; };
 		806845DF2AF7252A005844EF /* ListRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListRowView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -94,6 +96,7 @@
 		8011C58F2AF5D64C00292467 = {
 			isa = PBXGroup;
 			children = (
+				802685C22B312CF600370F61 /* Config.plist */,
 				8011C59A2AF5D64C00292467 /* ChartsSwiper */,
 				8011C5B02AF5D64D00292467 /* ChartsSwiperTests */,
 				8011C5BA2AF5D64D00292467 /* ChartsSwiperUITests */,
@@ -284,6 +287,7 @@
 				8011C5A32AF5D64D00292467 /* Preview Assets.xcassets in Resources */,
 				8011C5D72AF6ED2D00292467 /* westpaccomau-icon.svg in Resources */,
 				8011C5D52AF6ECE000292467 /* westpac_icon in Resources */,
+				802685C32B312CF600370F61 /* Config.plist in Resources */,
 				8011C5A02AF5D64D00292467 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
