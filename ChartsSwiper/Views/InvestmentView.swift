@@ -1,3 +1,10 @@
+//
+//  InvestmentView.swift
+//  ChartsSwiper
+//
+//  Created by Jakob Ossmann on 5/11/2023.
+//
+
 
 import SwiftUI
 import CoreData

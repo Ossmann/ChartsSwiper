@@ -1,9 +1,24 @@
+//
+//  ContentView.swift
+//  ChartsSwiper
+//
+//  Created by Jakob Ossmann on 5/11/2023.
+//
+// We have a WelcomeScreen and the Preference selection that only appear once.
+// InvestmentView is where the main content starts
+//
+
 import SwiftUI
 import CoreData
+import Foundation
 
 struct ContentView: View {
+    //State Variable so tutorial is only viewed once
+    @StateObject private var tutorialManager = TutorialManager()
+    
+    // Enviroment Object so we can get the DB stock CoreData
     @Environment(\.managedObjectContext) var managedObjectContext
-
+    //Fetch the Core Data
     @FetchRequest(
         entity: DBStock.entity(),
         sortDescriptors: [NSSortDescriptor(keyPath: \DBStock.symbol, ascending: true)],
@@ -11,52 +26,15 @@ struct ContentView: View {
     ) var aaplStocks: FetchedResults<DBStock>
 
     var body: some View {
-        NavigationView {
-            VStack {
-                header
-                stocksList
-                footer
+        if tutorialManager.welcomeScreenShown {
+            if tutorialManager.preferencesScreenShown {
+                InvestmentView()
+            } else {
+                PreferencesView(tutorialManager: tutorialManager)
             }
-            .navigationTitle("Stocks Overview")
+        } else {
+            TutorialView(tutorialManager: tutorialManager)
         }
-    }
-
-    // MARK: - Subviews
-    private var header: some View {
-        VStack {
-            Text("Welcome to the New App")
-                .font(.largeTitle)
-                .fontWeight(.bold)
-                .padding(.top, 20)
-
-            NavigationLink(destination: InvestmentView()) {
-                Text("Explore Investments")
-                    .foregroundColor(.white)
-                    .padding()
-                    .frame(maxWidth: .infinity)
-                    .background(Color.blue)
-                    .cornerRadius(10)
-                    .padding(.horizontal, 20)
-            }
-        }
-    }
-
-    private var stocksList: some View {
-        List(aaplStocks, id: \.self) { stock in
-            HStack {
-                Text(stock.symbol ?? "Unknown")
-                    .fontWeight(.semibold)
-                Spacer()
-                Text(String(format: "PE Ratio: %.5f", stock.peRatio))
-                    .foregroundColor(stock.peRatio > 0 ? .green : .red)
-            }
-            .padding(.vertical, 8)
-        }
-        .listStyle(PlainListStyle())
-        //check error in fetching
-        .onAppear {
-                print("Fetched \(aaplStocks.count) AAPL stocks")
-            }
     }
 
     private var footer: some View {
@@ -69,5 +47,47 @@ struct ContentView: View {
             }
             .padding(.bottom, 20)
         }
+    }
+}
+
+// Observable object to manage the welcome screen state
+class TutorialManager: ObservableObject {
+    @Published var welcomeScreenShown: Bool
+    @Published var preferencesScreenShown: Bool
+
+    init() {
+        welcomeScreenShown = UserDefaults.standard.welcomeScreenShown
+        preferencesScreenShown = UserDefaults.standard.preferencesScreenShown
+    }
+
+    func setWelcomeScreenShown() {
+        UserDefaults.standard.welcomeScreenShown = true
+        welcomeScreenShown = true
+    }
+    
+    func setPreferencesScreenShown() {
+            UserDefaults.standard.preferencesScreenShown = true
+            preferencesScreenShown = true
+        }
+    
+}
+
+// Extension to UserDefaults to simplify the welcome screen flag access
+extension UserDefaults {
+    var welcomeScreenShown: Bool {
+        get { bool(forKey: "welcomeScreenShown") }
+        set { set(newValue, forKey: "welcomeScreenShown") }
+    }
+    
+    var preferencesScreenShown: Bool {
+            get { bool(forKey: "preferencesScreenShown") }
+            set { set(newValue, forKey: "preferencesScreenShown") }
+        }
+}
+
+
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentView()
     }
 }
