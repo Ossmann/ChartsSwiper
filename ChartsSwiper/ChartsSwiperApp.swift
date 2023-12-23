@@ -15,10 +15,21 @@ struct ChartsSwiperApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .onAppear {
+                    loadDataInBackground()
+                }
                 // Pass the managed object context to the ContentView
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
                 .environmentObject(watchlistViewModel)
 
+        }
+    }
+    
+    //Function to load my CSV stock data into the CoreData (defined in DataLoader)
+    private func loadDataInBackground() {
+        DispatchQueue.global(qos: .background).async {
+            let backgroundContext = self.persistenceController.container.newBackgroundContext()
+            DataLoader.loadCSVAndInsertIntoCoreData(fileName: "top_2000_stocks_normalized.csv", context: backgroundContext)
         }
     }
 }

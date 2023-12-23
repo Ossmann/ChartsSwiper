@@ -23,6 +23,8 @@
 		8011C5D52AF6ECE000292467 /* westpac_icon in Resources */ = {isa = PBXBuildFile; fileRef = 8011C5D42AF6ECE000292467 /* westpac_icon */; };
 		8011C5D72AF6ED2D00292467 /* westpaccomau-icon.svg in Resources */ = {isa = PBXBuildFile; fileRef = 8011C5D62AF6ED2D00292467 /* westpaccomau-icon.svg */; };
 		802685C32B312CF600370F61 /* Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = 802685C22B312CF600370F61 /* Config.plist */; };
+		802685CE2B366BFD00370F61 /* DataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802685CD2B366BFD00370F61 /* DataLoader.swift */; };
+		802685D02B36802200370F61 /* top_2000_stocks_normalized.csv in Resources */ = {isa = PBXBuildFile; fileRef = 802685CF2B36802200370F61 /* top_2000_stocks_normalized.csv */; };
 		806845DE2AF7248C005844EF /* WatchListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806845DD2AF7248C005844EF /* WatchListView.swift */; };
 		806845E02AF7252A005844EF /* ListRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806845DF2AF7252A005844EF /* ListRowView.swift */; };
 /* End PBXBuildFile section */
@@ -64,6 +66,8 @@
 		8011C5D42AF6ECE000292467 /* westpac_icon */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = westpac_icon; sourceTree = "<group>"; };
 		8011C5D62AF6ED2D00292467 /* westpaccomau-icon.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "westpaccomau-icon.svg"; sourceTree = "<group>"; };
 		802685C22B312CF600370F61 /* Config.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Config.plist; sourceTree = "<group>"; };
+		802685CD2B366BFD00370F61 /* DataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataLoader.swift; sourceTree = "<group>"; };
+		802685CF2B36802200370F61 /* top_2000_stocks_normalized.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = top_2000_stocks_normalized.csv; sourceTree = "<group>"; };
 		806845DD2AF7248C005844EF /* WatchListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchListView.swift; sourceTree = "<group>"; };
 		806845DF2AF7252A005844EF /* ListRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListRowView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -117,12 +121,12 @@
 		8011C59A2AF5D64C00292467 /* ChartsSwiper */ = {
 			isa = PBXGroup;
 			children = (
+				802685CC2B36612500370F61 /* Database */,
 				8011C5D12AF647DE00292467 /* Model */,
 				8011C5CC2AF5FA4600292467 /* Views */,
 				8011C59B2AF5D64C00292467 /* ChartsSwiperApp.swift */,
 				8011C59F2AF5D64D00292467 /* Assets.xcassets */,
 				8011C5A42AF5D64D00292467 /* Persistence.swift */,
-				8011C5A62AF5D64D00292467 /* ChartsSwiper.xcdatamodeld */,
 				8011C5A12AF5D64D00292467 /* Preview Content */,
 			);
 			path = ChartsSwiper;
@@ -174,6 +178,16 @@
 				8011C5CF2AF647D100292467 /* ViewModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		802685CC2B36612500370F61 /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				8011C5A62AF5D64D00292467 /* ChartsSwiper.xcdatamodeld */,
+				802685CF2B36802200370F61 /* top_2000_stocks_normalized.csv */,
+				802685CD2B366BFD00370F61 /* DataLoader.swift */,
+			);
+			path = Database;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -286,6 +300,7 @@
 			files = (
 				8011C5A32AF5D64D00292467 /* Preview Assets.xcassets in Resources */,
 				8011C5D72AF6ED2D00292467 /* westpaccomau-icon.svg in Resources */,
+				802685D02B36802200370F61 /* top_2000_stocks_normalized.csv in Resources */,
 				8011C5D52AF6ECE000292467 /* westpac_icon in Resources */,
 				802685C32B312CF600370F61 /* Config.plist in Resources */,
 				8011C5A02AF5D64D00292467 /* Assets.xcassets in Resources */,
@@ -320,6 +335,7 @@
 				8011C59E2AF5D64C00292467 /* ContentView.swift in Sources */,
 				8011C59C2AF5D64C00292467 /* ChartsSwiperApp.swift in Sources */,
 				8011C5CB2AF5D9FE00292467 /* CardView.swift in Sources */,
+				802685CE2B366BFD00370F61 /* DataLoader.swift in Sources */,
 				806845E02AF7252A005844EF /* ListRowView.swift in Sources */,
 				8011C5D02AF647D100292467 /* ViewModel.swift in Sources */,
 				8011C5D32AF6DDCA00292467 /* InvestmentView.swift in Sources */,

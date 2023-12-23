@@ -43,7 +43,7 @@ struct StockHistory: Codable {
 }
 
 // View Model
-class StockViewModel: ObservableObject {
+class APIStockViewModel: ObservableObject {
     @Published var stocks: [Stock] = []
 
     func fetchAPIKey() -> String? {
@@ -151,3 +151,6 @@ class WatchlistViewModel: ObservableObject {
         watchlist.append(stock)
     }
 }
+
+
+

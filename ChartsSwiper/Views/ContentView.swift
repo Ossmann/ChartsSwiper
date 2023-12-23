@@ -1,72 +1,73 @@
 import SwiftUI
+import CoreData
 
 struct ContentView: View {
-    @State private var animate = false  // State variable to control animation
-    
+    @Environment(\.managedObjectContext) var managedObjectContext
+
+    @FetchRequest(
+        entity: DBStock.entity(),
+        sortDescriptors: [NSSortDescriptor(keyPath: \DBStock.symbol, ascending: true)],
+        predicate: NSPredicate(format: "symbol == %@", "AAPL")
+    ) var aaplStocks: FetchedResults<DBStock>
+
     var body: some View {
         NavigationView {
             VStack {
-                Spacer()
-                
-                // Header
-                Text("WELCOME TO THE NEW APP")
-                    .font(.headline)
+                header
+                stocksList
+                footer
+            }
+            .navigationTitle("Stocks Overview")
+        }
+    }
+
+    // MARK: - Subviews
+    private var header: some View {
+        VStack {
+            Text("Welcome to the New App")
+                .font(.largeTitle)
+                .fontWeight(.bold)
+                .padding(.top, 20)
+
+            NavigationLink(destination: InvestmentView()) {
+                Text("Explore Investments")
                     .foregroundColor(.white)
                     .padding()
-                
-                // Buttons
-                Group {
-                    Button("Quick balance", action: {})
-                    Button("Cardless Cash", action: {})
-                    NavigationLink(destination: InvestmentView()) {
-                        ZStack {
-                            Text("Explore Investments")
-                                .frame(maxWidth: .infinity, alignment: .center)
-                            HStack {
-                                Spacer() // Pushes the arrow to the right
-                                Image(systemName: "arrow.right.circle.fill")
-                                    .font(.largeTitle)
-                                    .foregroundColor(Color(red: 0.855, green: 0.09, blue: 0.063)) // #da1710
-                                    .offset(x: animate ? 10 : 0)
-                                    .animation(Animation.easeInOut(duration: 0.8).repeatForever(autoreverses: true), value: animate)
-                                    .onAppear {
-                                        animate = true
-                                    }
-                            }
-                        }
-                    }
-                }
-                .padding()
-                .frame(maxWidth: .infinity)
-                .foregroundColor(.black)
-                .background(.white)
-                .cornerRadius(5)
-                
-                Spacer()
-                
-                // WestPac Logo
-                Image("westpaccomau-icon")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 200, height: 200)
-
-                Spacer()
-                HStack {
-                    Image(systemName: "c.circle")
-                    Text("Jakob Ossmann")
-                }
-                    .font(.footnote) // This makes the font smaller
-                Spacer()
+                    .frame(maxWidth: .infinity)
+                    .background(Color.blue)
+                    .cornerRadius(10)
+                    .padding(.horizontal, 20)
             }
-            .padding(.horizontal) // This will ensure the padding is uniform on both sides
-            .background(
-                LinearGradient(gradient: Gradient(colors: [Color(red: 153/255, green: 0, blue: 0), Color(red: 153/255, green: 26/255, blue: 214/255)]),
-                               startPoint: .topLeading,
-                               endPoint: .bottomTrailing)
-                    .edgesIgnoringSafeArea(.all)
-            )
-            .edgesIgnoringSafeArea(.all)
+        }
+    }
+
+    private var stocksList: some View {
+        List(aaplStocks, id: \.self) { stock in
+            HStack {
+                Text(stock.symbol ?? "Unknown")
+                    .fontWeight(.semibold)
+                Spacer()
+                Text(String(format: "PE Ratio: %.2f", stock.peRatio))
+                    .foregroundColor(stock.peRatio > 0 ? .green : .red)
+            }
+            .padding(.vertical, 8)
+        }
+        .listStyle(PlainListStyle())
+        //check error in fetching
+        .onAppear {
+                print("Fetched \(aaplStocks.count) AAPL stocks")
+            }
+    }
+
+    private var footer: some View {
+        VStack {
+            Divider()
+            HStack {
+                Image(systemName: "c.circle")
+                Text("Jakob Ossmann")
+                    .font(.footnote)
+            }
+            .padding(.bottom, 20)
         }
     }
 }
-

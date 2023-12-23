@@ -4,7 +4,7 @@ import CoreData
 
 
 struct InvestmentView: View {
-    @StateObject private var viewModel = StockViewModel() // Instance of StockViewModel
+    @StateObject private var viewModel = APIStockViewModel() // Instance of StockViewModel
     @State private var animate = false  // State variable to control animation
 
 
