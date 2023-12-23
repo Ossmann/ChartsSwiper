@@ -47,7 +47,7 @@ struct ContentView: View {
                 Text(stock.symbol ?? "Unknown")
                     .fontWeight(.semibold)
                 Spacer()
-                Text(String(format: "PE Ratio: %.2f", stock.peRatio))
+                Text(String(format: "PE Ratio: %.5f", stock.peRatio))
                     .foregroundColor(stock.peRatio > 0 ? .green : .red)
             }
             .padding(.vertical, 8)
