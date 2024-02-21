@@ -1,4 +1,5 @@
-import UIKit
+import SwiftUI
+import CoreData
 
 struct YahooFinanceResponse: Codable {
     struct MetaData: Codable {
@@ -65,7 +66,7 @@ class APIStockViewModel: ObservableObject {
         
         // List of stock symbols
         let largeCaps = [
-            "AAPL"
+            "AAPL", "META", "GM"
         ]
         
         // Create a URLSession for making API requests
@@ -112,7 +113,7 @@ class APIStockViewModel: ObservableObject {
                             for timestampString in last3Timestamps {
                                 if let item = responseDict.body[timestampString], let timestamp = Int(timestampString) {
                                     
-                                    print(item)
+//                                    print(item)
                                     
                                     // Append StockHistory object
                                     stockHistory.append(StockHistory(
@@ -143,6 +144,37 @@ class APIStockViewModel: ObservableObject {
     }
 }
 
+// View Model
+class MatchViewModel: ObservableObject {
+    func updateMatchScores(peRatioPreference: Float) {
+        let viewContext = PersistenceController.shared.container.viewContext
+        
+        let fetchRequest: NSFetchRequest<DBStock> = DBStock.fetchRequest()
+        
+        do {
+            let stocks = try viewContext.fetch(fetchRequest)
+            
+            print("test match calculation")
+            
+            for stock in stocks {
+                if stock.symbol == "AAPL" || stock.symbol == "GM" {
+                    stock.matchScore = peRatioPreference * (stock.peRatio ?? 0)
+                
+                    print("Match Score for \(String(describing: stock.symbol)):", stock.matchScore)
+                }
+ 
+            }
+            
+            // Save the context after updating match scores
+            try viewContext.save()
+            
+        } catch {
+            print("Error fetching stocks: \(error)")
+        }
+    }
+}
+
+
 class WatchlistViewModel: ObservableObject {
     static let shared = WatchlistViewModel()
     @Published var watchlist: [Stock] = []
@@ -151,6 +183,3 @@ class WatchlistViewModel: ObservableObject {
         watchlist.append(stock)
     }
 }
-
-
-
