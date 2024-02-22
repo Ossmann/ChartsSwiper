@@ -241,14 +241,38 @@ class MatchViewModel: ObservableObject {
     }
 }
 
-
-
-
+//Model for the Watchlist
 class WatchlistViewModel: ObservableObject {
-    static let shared = WatchlistViewModel()
-    @Published var watchlist: [DetailStock] = []
     
-    func addStock(stock: DetailStock) {
-        watchlist.append(stock)
+    //add stocks to the watchlist
+    func addToWatchlist(cardStock: DetailStock) {
+        let viewContext = PersistenceController.shared.container.viewContext
+        
+        let fetchRequest: NSFetchRequest<WatchListStock> = WatchListStock.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "symbol == %@", cardStock.symbol)
+        
+        do {
+            let existingStocks = try viewContext.fetch(fetchRequest)
+            
+            // If the stock is not already in the watchlist, add it
+            if existingStocks.isEmpty {
+                let newWatchListStock = WatchListStock(context: viewContext)
+                newWatchListStock.symbol = cardStock.symbol
+                // Set any other properties of WatchListStock from DetailStock if necessary
+                
+                try viewContext.save()
+                print("New stock added to Watchlist")
+            } else {
+                print("Stock is already in the watchlist")
+            }
+            
+        } catch {
+            print("Error fetching stocks or saving to context: \(error)")
+        }
     }
+    
+    
 }
+
+
+

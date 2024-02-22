@@ -99,7 +99,7 @@ struct CardView: View {
         // Swipe right to add a new stock to the Watchlist
         case 150...500:
             print("\(stock.symbol) added")
-            watchlistViewModel.addStock(stock: stock)
+            watchlistViewModel.addToWatchlist(cardStock: stock)
             offset = CGSize(width: 500, height: 0)
         default:
             offset = .zero

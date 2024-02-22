@@ -5,4 +5,8 @@
         <attribute name="peRatio" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="symbol" optional="YES" attributeType="String"/>
     </entity>
+    <entity name="WatchListStock" representedClassName="WatchListStock" syncable="YES" codeGenerationType="class">
+        <attribute name="price" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="symbol" optional="YES" attributeType="String"/>
+    </entity>
 </model>
