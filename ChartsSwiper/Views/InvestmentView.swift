@@ -11,7 +11,7 @@ import CoreData
 
 
 struct InvestmentView: View {
-    @StateObject private var viewModel = APIStockViewModel() // Instance of StockViewModel
+    @StateObject private var viewModel = StockCoordinator()
     @State private var animate = false  // State variable to control animation
 
 
@@ -33,14 +33,15 @@ struct InvestmentView: View {
 
                 //Stack of Cards
                 ZStack {
-                    ForEach(viewModel.stocks) { stock in
+                    ForEach(viewModel.detailStocks) { stock in
                         CardView(stock: stock)
                     }
                 }
             }// Fetch data when the view appears
             .onAppear{
-                print("Test Console Investment VIew")
-                viewModel.fetchData()
+                Task {
+                    await viewModel.displayTopStocks()
+                }
             }
         
         Text("Demo Data: AlphaVantage.co, No commercial use")

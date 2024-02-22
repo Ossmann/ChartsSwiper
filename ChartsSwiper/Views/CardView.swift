@@ -2,7 +2,7 @@ import Charts
 import SwiftUI
 
 struct CardView: View {
-    var stock: Stock
+    var stock: DetailStock
     @State private var offset = CGSize.zero
     @State private var color: Color = .white
     @EnvironmentObject var watchlistViewModel: WatchlistViewModel

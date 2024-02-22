@@ -246,9 +246,9 @@ class MatchViewModel: ObservableObject {
 
 class WatchlistViewModel: ObservableObject {
     static let shared = WatchlistViewModel()
-    @Published var watchlist: [APIStock] = []
+    @Published var watchlist: [DetailStock] = []
     
-    func addStock(stock: APIStock) {
+    func addStock(stock: DetailStock) {
         watchlist.append(stock)
     }
 }
