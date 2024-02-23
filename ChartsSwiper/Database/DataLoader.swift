@@ -13,7 +13,7 @@ import CoreData
 class DataLoader {
     static func loadCSVAndInsertIntoCoreData(fileName: String, context: NSManagedObjectContext) {
         let csvData = loadCSV(from: fileName)
-        print("Loaded CSV data: \(csvData)")
+//        print("Loaded CSV data: \(csvData)")
         context.perform {
             insertIntoCoreData(csvData: csvData, context: context)
             // Handle saving and error catching here
@@ -57,7 +57,7 @@ class DataLoader {
             let newStock = DBStock(context: context)
             newStock.symbol = row[0]
             newStock.peRatio = peRatio
-            print("Inserted: \(newStock.symbol), PE Ratio: \(newStock.peRatio)")
+//            print("Inserted: \(newStock.symbol), PE Ratio: \(newStock.peRatio)")
         }
 
         do {

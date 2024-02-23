@@ -5,7 +5,7 @@ struct CardView: View {
     var stock: DetailStock
     @State private var offset = CGSize.zero
     @State private var color: Color = .white
-    @EnvironmentObject var watchlistViewModel: WatchlistViewModel
+    @StateObject private var watchlistAdditionService = WatchlistAdditionService()
     
     var displayedDates: [String] {
             stock.history.enumerated().compactMap { index, history in
@@ -99,7 +99,7 @@ struct CardView: View {
         // Swipe right to add a new stock to the Watchlist
         case 150...500:
             print("\(stock.symbol) added")
-            watchlistViewModel.addToWatchlist(cardStock: stock)
+            watchlistAdditionService.addToWatchlist(cardStock: stock)
             offset = CGSize(width: 500, height: 0)
         default:
             offset = .zero
