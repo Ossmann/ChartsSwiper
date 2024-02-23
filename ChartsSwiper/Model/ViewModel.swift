@@ -250,7 +250,7 @@ struct YahooFinanceQuoteResponse: Codable {
 
     struct StockQuote: Codable {
         let regularMarketPrice: Double
-//        let displayName: String
+        let displayName: String
         let symbol: String
         // Include other properties from the JSON as needed
     }
@@ -259,14 +259,14 @@ struct YahooFinanceQuoteResponse: Codable {
 
 struct WatchListStock {
     let regularMarketPrice: Double?
-//    let displayName: String
+    let displayName: String
     let symbol: String // Assuming this is a Double, adjust based on actual data type
 
     // Define an initializer that takes the symbol and regularMarketPrice as arguments
-    init(symbol: String, regularMarketPrice: Double?) {
+    init(symbol: String, regularMarketPrice: Double?, displayName: String) {
         self.symbol = symbol
         self.regularMarketPrice = regularMarketPrice
-//        let displayName =
+        self.displayName = displayName
     }
 }
 
@@ -335,7 +335,7 @@ class WatchlistViewModel: ObservableObject {
             do {
                 let stockQuotes = try await apiPriceCall(watchListSymbols: symbols, apiKey: apiKey)
                 // Convert each StockQuote to a WatchListStock
-                let updatedStocks = stockQuotes.map { WatchListStock(symbol: $0.symbol, regularMarketPrice: $0.regularMarketPrice) }
+                let updatedStocks = stockQuotes.map { WatchListStock(symbol: $0.symbol, regularMarketPrice: $0.regularMarketPrice, displayName: $0.displayName) }
                 
                 print("Successfully fetched stock prices, updating ViewModel")
                 DispatchQueue.main.async {
