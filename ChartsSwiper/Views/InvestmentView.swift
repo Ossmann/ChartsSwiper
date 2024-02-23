@@ -13,6 +13,7 @@ import CoreData
 struct InvestmentView: View {
     @StateObject private var viewModel = StockCoordinator()
     @State private var animate = false  // State variable to control animation
+    @State private var showDisclaimer = false     // State to keep track of whether the disclaimer should be shown
 
     var body: some View {
         NavigationView { // Start of the NavigationView
@@ -36,11 +37,26 @@ struct InvestmentView: View {
                         CardView(stock: stock)
                     }
                 }
+                
+                Spacer()
 
-                Spacer() // Pushes everything to the top
+                // Use a DisclosureGroup for a better UX for Disclaimer
+                DisclosureGroup("Show Disclaimer", isExpanded: $showDisclaimer) {
+                    Text("The information listed here does not constitute investment advice. No guarantee that the data is correct or up to date. Data Source Yahoo Finance RapidAPI.")
+                        .font(.footnote)
+                        .foregroundColor(.gray)
+                        .padding()
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .transition(.slide)
+                }
+                .accentColor(.gray) // Customize the color to match your app's theme
+                .animation(.easeInOut, value: showDisclaimer)
+                .font(.footnote)
+                .padding()
 
-                Text("Demo Data: AlphaVantage.co, No commercial use")
-                    .font(.footnote) // This makes the font smaller
+                
+                            
+                            
 
                 // Navigation link to Watchlist
                 NavigationLink(destination: WatchListView()) {
@@ -63,4 +79,3 @@ struct InvestmentView: View {
         } // End of the NavigationView
     }
 }
-

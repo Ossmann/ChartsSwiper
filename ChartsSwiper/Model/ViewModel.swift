@@ -402,5 +402,31 @@ class WatchlistViewModel: ObservableObject {
         }
         return dict["APIKey"] as? String
     }
+    
+    //delte stocks from Watchlist by swiping
+    func deleteStocks(atOffsets offsets: IndexSet) {
+        // First, remove the stocks from the in-memory array.
+        let symbolsToDelete = offsets.map { watchlistStocksWithPrices[$0].symbol }
+        watchlistStocksWithPrices.remove(atOffsets: offsets)
+
+        // Prepare to delete from CoreData
+        let viewContext = persistenceController.container.viewContext
+
+        symbolsToDelete.forEach { symbol in
+            let fetchRequest: NSFetchRequest<WatchListCoreStock> = WatchListCoreStock.fetchRequest()
+            fetchRequest.predicate = NSPredicate(format: "symbol == %@", symbol)
+
+            do {
+                let results = try viewContext.fetch(fetchRequest)
+                for object in results {
+                    viewContext.delete(object)
+                }
+                try viewContext.save()
+            } catch {
+                // Handle the error appropriately
+                print("Error deleting stock from CoreData: \(error)")
+            }
+        }
+    }
 }
 

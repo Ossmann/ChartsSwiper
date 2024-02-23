@@ -42,6 +42,7 @@ struct WatchListView: View {
                         }
                     }
                 }
+                .onDelete(perform: viewModel.deleteStocks)
             }
         }
         .onAppear {
