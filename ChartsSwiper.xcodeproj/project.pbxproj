@@ -20,8 +20,6 @@
 		8011C5CE2AF6471D00292467 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8011C5CD2AF6471D00292467 /* ViewController.swift */; };
 		8011C5D02AF647D100292467 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8011C5CF2AF647D100292467 /* ViewModel.swift */; };
 		8011C5D32AF6DDCA00292467 /* InvestmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8011C5D22AF6DDCA00292467 /* InvestmentView.swift */; };
-		8011C5D52AF6ECE000292467 /* westpac_icon in Resources */ = {isa = PBXBuildFile; fileRef = 8011C5D42AF6ECE000292467 /* westpac_icon */; };
-		8011C5D72AF6ED2D00292467 /* westpaccomau-icon.svg in Resources */ = {isa = PBXBuildFile; fileRef = 8011C5D62AF6ED2D00292467 /* westpaccomau-icon.svg */; };
 		802685C32B312CF600370F61 /* Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = 802685C22B312CF600370F61 /* Config.plist */; };
 		802685CE2B366BFD00370F61 /* DataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802685CD2B366BFD00370F61 /* DataLoader.swift */; };
 		802685D02B36802200370F61 /* top_2000_stocks_normalized.csv in Resources */ = {isa = PBXBuildFile; fileRef = 802685CF2B36802200370F61 /* top_2000_stocks_normalized.csv */; };
@@ -29,8 +27,13 @@
 		802685D42B36D2A100370F61 /* TutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802685D32B36D2A100370F61 /* TutorialView.swift */; };
 		803ECB022B8A1B7F0087A2ED /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803ECB012B8A1B7F0087A2ED /* BackgroundView.swift */; };
 		803ECB042B8A20C90087A2ED /* BackgroundNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803ECB032B8A20C90087A2ED /* BackgroundNavigationView.swift */; };
+		803ECB072B8A26E00087A2ED /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 803ECB062B8A26E00087A2ED /* Lottie */; };
+		803ECB092B8A29210087A2ED /* HiddenValue.json in Resources */ = {isa = PBXBuildFile; fileRef = 803ECB082B8A29210087A2ED /* HiddenValue.json */; };
+		803ECB0B2B8A29810087A2ED /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803ECB0A2B8A29810087A2ED /* LottieView.swift */; };
 		806845DE2AF7248C005844EF /* WatchListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806845DD2AF7248C005844EF /* WatchListView.swift */; };
 		806845E02AF7252A005844EF /* ListRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806845DF2AF7252A005844EF /* ListRowView.swift */; };
+		8078B8F32B8A2F3F00257BF6 /* Dividends.json in Resources */ = {isa = PBXBuildFile; fileRef = 8078B8F12B8A2F3F00257BF6 /* Dividends.json */; };
+		8078B8F72B8A30E600257BF6 /* EarningsGrowth.json in Resources */ = {isa = PBXBuildFile; fileRef = 8078B8F62B8A30E600257BF6 /* EarningsGrowth.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,8 +70,6 @@
 		8011C5CD2AF6471D00292467 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		8011C5CF2AF647D100292467 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		8011C5D22AF6DDCA00292467 /* InvestmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvestmentView.swift; sourceTree = "<group>"; };
-		8011C5D42AF6ECE000292467 /* westpac_icon */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = westpac_icon; sourceTree = "<group>"; };
-		8011C5D62AF6ED2D00292467 /* westpaccomau-icon.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "westpaccomau-icon.svg"; sourceTree = "<group>"; };
 		802685C22B312CF600370F61 /* Config.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Config.plist; sourceTree = "<group>"; };
 		802685CD2B366BFD00370F61 /* DataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataLoader.swift; sourceTree = "<group>"; };
 		802685CF2B36802200370F61 /* top_2000_stocks_normalized.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = top_2000_stocks_normalized.csv; sourceTree = "<group>"; };
@@ -76,8 +77,12 @@
 		802685D32B36D2A100370F61 /* TutorialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialView.swift; sourceTree = "<group>"; };
 		803ECB012B8A1B7F0087A2ED /* BackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundView.swift; sourceTree = "<group>"; };
 		803ECB032B8A20C90087A2ED /* BackgroundNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundNavigationView.swift; sourceTree = "<group>"; };
+		803ECB082B8A29210087A2ED /* HiddenValue.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = HiddenValue.json; sourceTree = "<group>"; };
+		803ECB0A2B8A29810087A2ED /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
 		806845DD2AF7248C005844EF /* WatchListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchListView.swift; sourceTree = "<group>"; };
 		806845DF2AF7252A005844EF /* ListRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListRowView.swift; sourceTree = "<group>"; };
+		8078B8F12B8A2F3F00257BF6 /* Dividends.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Dividends.json; sourceTree = "<group>"; };
+		8078B8F62B8A30E600257BF6 /* EarningsGrowth.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = EarningsGrowth.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +90,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				803ECB072B8A26E00087A2ED /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -145,8 +151,9 @@
 		8011C5A12AF5D64D00292467 /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
-				8011C5D62AF6ED2D00292467 /* westpaccomau-icon.svg */,
-				8011C5D42AF6ECE000292467 /* westpac_icon */,
+				8078B8F62B8A30E600257BF6 /* EarningsGrowth.json */,
+				8078B8F12B8A2F3F00257BF6 /* Dividends.json */,
+				803ECB082B8A29210087A2ED /* HiddenValue.json */,
 				8011C5A22AF5D64D00292467 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
@@ -180,6 +187,7 @@
 				8011C5D22AF6DDCA00292467 /* InvestmentView.swift */,
 				806845DD2AF7248C005844EF /* WatchListView.swift */,
 				806845DF2AF7252A005844EF /* ListRowView.swift */,
+				803ECB0A2B8A29810087A2ED /* LottieView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -219,6 +227,7 @@
 			);
 			name = ChartsSwiper;
 			packageProductDependencies = (
+				803ECB062B8A26E00087A2ED /* Lottie */,
 			);
 			productName = ChartsSwiper;
 			productReference = 8011C5982AF5D64C00292467 /* ChartsSwiper.app */;
@@ -293,6 +302,7 @@
 			);
 			mainGroup = 8011C58F2AF5D64C00292467;
 			packageReferences = (
+				803ECB052B8A26E00087A2ED /* XCRemoteSwiftPackageReference "lottie-ios" */,
 			);
 			productRefGroup = 8011C5992AF5D64C00292467 /* Products */;
 			projectDirPath = "";
@@ -311,11 +321,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				8011C5A32AF5D64D00292467 /* Preview Assets.xcassets in Resources */,
-				8011C5D72AF6ED2D00292467 /* westpaccomau-icon.svg in Resources */,
 				802685D02B36802200370F61 /* top_2000_stocks_normalized.csv in Resources */,
-				8011C5D52AF6ECE000292467 /* westpac_icon in Resources */,
+				8078B8F32B8A2F3F00257BF6 /* Dividends.json in Resources */,
 				802685C32B312CF600370F61 /* Config.plist in Resources */,
+				8078B8F72B8A30E600257BF6 /* EarningsGrowth.json in Resources */,
 				8011C5A02AF5D64D00292467 /* Assets.xcassets in Resources */,
+				803ECB092B8A29210087A2ED /* HiddenValue.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -347,6 +358,7 @@
 				8011C5A82AF5D64D00292467 /* ChartsSwiper.xcdatamodeld in Sources */,
 				8011C5A52AF5D64D00292467 /* Persistence.swift in Sources */,
 				8011C59E2AF5D64C00292467 /* ContentView.swift in Sources */,
+				803ECB0B2B8A29810087A2ED /* LottieView.swift in Sources */,
 				8011C59C2AF5D64C00292467 /* ChartsSwiperApp.swift in Sources */,
 				8011C5CB2AF5D9FE00292467 /* CardView.swift in Sources */,
 				802685CE2B366BFD00370F61 /* DataLoader.swift in Sources */,
@@ -673,6 +685,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		803ECB052B8A26E00087A2ED /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		803ECB062B8A26E00087A2ED /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 803ECB052B8A26E00087A2ED /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		8011C5A62AF5D64D00292467 /* ChartsSwiper.xcdatamodeld */ = {

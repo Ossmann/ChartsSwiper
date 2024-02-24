@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Lottie
 
 struct PreferencesView: View {
     @ObservedObject var tutorialManager: TutorialManager
@@ -26,11 +27,17 @@ struct PreferencesView: View {
 
             switch currentQuestion {
             case 1:
-                preferenceQuestionView(imageName: "chart.bar", title: "Revenue Growth", sliderValue: $sliderValue)
+                LottieView(name: "EarningsGrowth", loopMode: .loop)
+                                    .frame(width: 260, height: 260) // Set your frame here
+                preferenceQuestionView(title: "Growing Revenues", sliderValue: $sliderValue)
             case 2:
-                preferenceQuestionView(imageName: "hand.coin", title: "Hidden Value", sliderValue: $sliderValue)
+                LottieView(name: "HiddenValue", loopMode: .loop)
+                                    .frame(width: 260, height: 260) // Set your frame here
+                preferenceQuestionView(title: "Hidden Value", sliderValue: $sliderValue)
             case 3:
-                preferenceQuestionView(imageName: "arrow.up.forward", title: "Dividend Income", sliderValue: $sliderValue, isLast: true)
+                LottieView(name: "Dividends", loopMode: .loop)
+                                    .frame(width: 260, height: 260)
+                preferenceQuestionView(title: "Dividend Income", sliderValue: $sliderValue, isLast: true)
             default:
                 Button("To my recommendations") {
                     tutorialManager.setPreferencesScreenShown()
@@ -39,9 +46,8 @@ struct PreferencesView: View {
         }
     }
 
-    private func preferenceQuestionView(imageName: String, title: String, sliderValue: Binding<Double>, isLast: Bool = false) -> some View {
+    private func preferenceQuestionView(title: String, sliderValue: Binding<Double>, isLast: Bool = false) -> some View {
         VStack {
-            Image(systemName: imageName)
             Text(title)
                 .bold() // Apply bold styling to the title
             Text("\(Int(sliderValue.wrappedValue))")
@@ -82,7 +88,3 @@ struct PreferencesView: View {
         }
     }
 }
-
-
-
-
