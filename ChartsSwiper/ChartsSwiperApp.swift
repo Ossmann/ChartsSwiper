@@ -13,12 +13,14 @@ struct ChartsSwiperApp: App {
     
     var body: some Scene {
         WindowGroup {
-            ContentView()
-                .onAppear {
-                    loadDataInBackground()
-                }
-                // Pass the managed object context to the ContentView
-                .environment(\.managedObjectContext, persistenceController.container.viewContext)
+            BackgroundView {
+                ContentView()
+                    .onAppear {
+                        loadDataInBackground()
+                    }
+                    // Pass the managed object context to the ContentView
+                    .environment(\.managedObjectContext, persistenceController.container.viewContext)
+            }
         }
     }
     
@@ -30,4 +32,5 @@ struct ChartsSwiperApp: App {
         }
     }
 }
+
 

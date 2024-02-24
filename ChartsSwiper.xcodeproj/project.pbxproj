@@ -27,6 +27,8 @@
 		802685D02B36802200370F61 /* top_2000_stocks_normalized.csv in Resources */ = {isa = PBXBuildFile; fileRef = 802685CF2B36802200370F61 /* top_2000_stocks_normalized.csv */; };
 		802685D22B36BDB100370F61 /* PreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802685D12B36BDB100370F61 /* PreferencesView.swift */; };
 		802685D42B36D2A100370F61 /* TutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802685D32B36D2A100370F61 /* TutorialView.swift */; };
+		803ECB022B8A1B7F0087A2ED /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803ECB012B8A1B7F0087A2ED /* BackgroundView.swift */; };
+		803ECB042B8A20C90087A2ED /* BackgroundNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803ECB032B8A20C90087A2ED /* BackgroundNavigationView.swift */; };
 		806845DE2AF7248C005844EF /* WatchListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806845DD2AF7248C005844EF /* WatchListView.swift */; };
 		806845E02AF7252A005844EF /* ListRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806845DF2AF7252A005844EF /* ListRowView.swift */; };
 /* End PBXBuildFile section */
@@ -72,6 +74,8 @@
 		802685CF2B36802200370F61 /* top_2000_stocks_normalized.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = top_2000_stocks_normalized.csv; sourceTree = "<group>"; };
 		802685D12B36BDB100370F61 /* PreferencesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesView.swift; sourceTree = "<group>"; };
 		802685D32B36D2A100370F61 /* TutorialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialView.swift; sourceTree = "<group>"; };
+		803ECB012B8A1B7F0087A2ED /* BackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundView.swift; sourceTree = "<group>"; };
+		803ECB032B8A20C90087A2ED /* BackgroundNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundNavigationView.swift; sourceTree = "<group>"; };
 		806845DD2AF7248C005844EF /* WatchListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchListView.swift; sourceTree = "<group>"; };
 		806845DF2AF7252A005844EF /* ListRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListRowView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -129,6 +133,8 @@
 				8011C5D12AF647DE00292467 /* Model */,
 				8011C5CC2AF5FA4600292467 /* Views */,
 				8011C59B2AF5D64C00292467 /* ChartsSwiperApp.swift */,
+				803ECB012B8A1B7F0087A2ED /* BackgroundView.swift */,
+				803ECB032B8A20C90087A2ED /* BackgroundNavigationView.swift */,
 				8011C59F2AF5D64D00292467 /* Assets.xcassets */,
 				8011C5A42AF5D64D00292467 /* Persistence.swift */,
 				8011C5A12AF5D64D00292467 /* Preview Content */,
@@ -344,8 +350,10 @@
 				8011C59C2AF5D64C00292467 /* ChartsSwiperApp.swift in Sources */,
 				8011C5CB2AF5D9FE00292467 /* CardView.swift in Sources */,
 				802685CE2B366BFD00370F61 /* DataLoader.swift in Sources */,
+				803ECB022B8A1B7F0087A2ED /* BackgroundView.swift in Sources */,
 				806845E02AF7252A005844EF /* ListRowView.swift in Sources */,
 				8011C5D02AF647D100292467 /* ViewModel.swift in Sources */,
+				803ECB042B8A20C90087A2ED /* BackgroundNavigationView.swift in Sources */,
 				8011C5D32AF6DDCA00292467 /* InvestmentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

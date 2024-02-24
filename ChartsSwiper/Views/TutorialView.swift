@@ -19,9 +19,6 @@ struct TutorialView: View {
     
     var body: some View {
         ZStack {
-            // Background with a subtle blue radiance
-            LinearGradient(gradient: Gradient(colors: [Color.white.opacity(0.7), Color.blue.opacity(0.4), Color.white.opacity(0.7)]), startPoint: .topLeading, endPoint: .bottomTrailing)
-                .edgesIgnoringSafeArea(.all)
             
             // Content
             VStack(spacing: 20) {

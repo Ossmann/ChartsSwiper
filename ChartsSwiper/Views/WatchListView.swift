@@ -12,9 +12,9 @@ struct WatchListView: View {
     @StateObject private var viewModel = WatchlistViewModel()
 
     var body: some View {
-        List {
-            Section(header:
-                HStack{
+            List {
+                Section(header:
+                            HStack{
                     Text("Stock")
                         .fontWeight(.bold)
                         .frame(width: 100, alignment: .leading)
@@ -25,30 +25,31 @@ struct WatchListView: View {
                         .fontWeight(.bold)
                         .frame(width: 70)
                 }
-            ) {
-                ForEach(viewModel.watchlistStocksWithPrices, id: \.symbol) { stock in
-                    HStack {
-                        Text(stock.displayName)
-                            .frame(width: 100, alignment: .leading)
-                        Text(stock.symbol)
-                            .frame(width: 80, alignment: .leading)
-                        HStack{
-                            Text("USD")
-                                .font(.system(size: 14))
-                            Text(String(format: "%.2f", stock.regularMarketPrice ?? 0))
-                                .frame(alignment: .trailing)
-                                .frame(width: 70)
-                                .foregroundColor(.green)
+                ) {
+                    ForEach(viewModel.watchlistStocksWithPrices, id: \.symbol) { stock in
+                        HStack {
+                            Text(stock.displayName)
+                                .frame(width: 100, alignment: .leading)
+                            Text(stock.symbol)
+                                .frame(width: 80, alignment: .leading)
+                            HStack{
+                                Text("USD")
+                                    .font(.system(size: 14))
+                                Text(String(format: "%.2f", stock.regularMarketPrice ?? 0))
+                                    .frame(alignment: .trailing)
+                                    .frame(width: 70)
+                                    .foregroundColor(.green)
+                            }
                         }
                     }
+                    .onDelete(perform: viewModel.deleteStocks)
                 }
-                .onDelete(perform: viewModel.deleteStocks)
             }
+            .onAppear {
+                viewModel.fetchWatchlistStocksWithPrices()
+            }
+            .navigationTitle("Watchlist")
+            // Apply the gradient background
+            .background(BackgroundNavigationView())
         }
-        .onAppear {
-            viewModel.fetchWatchlistStocksWithPrices()
-        }
-        .navigationTitle("Watchlist")
-    }
-
 }
