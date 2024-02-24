@@ -84,10 +84,3 @@ extension UserDefaults {
             set { set(newValue, forKey: "preferencesScreenShown") }
         }
 }
-
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-    }
-}
