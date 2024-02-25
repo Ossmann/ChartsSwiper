@@ -17,12 +17,13 @@ struct PreferencesView: View {
 
 
     var body: some View {
-        VStack(spacing: 80) {
+        VStack(spacing: 60) {
             Text("What is important to you when investing?")
                 .font(.headline) // Changed to .headline for better visual hierarchy
                 .bold() // Ensures the question is bold
+            Text("Rate the importance")
             
-            Spacer().frame(height: 20) // This Spacer pushes the button down
+            Spacer().frame(height: 10) // This Spacer pushes the button down
 
 
             switch currentQuestion {

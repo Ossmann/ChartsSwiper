@@ -8,33 +8,33 @@ struct CardView: View {
     @StateObject private var watchlistAdditionService = WatchlistAdditionService()
     
     var displayedDates: [String] {
-            stock.history.enumerated().compactMap { index, history in
-                index % 10 == 0 ? history.date : nil
-            }
+        stock.history.enumerated().compactMap { index, history in
+            index % 10 == 0 ? history.date : nil
         }
+    }
     
     var body: some View {
-        
-        // arrange the cards of Stocks with Charts in a ZStack atop of each other
         ZStack {
-            // format the cards
-            Rectangle()
+            // Glassmorphic card background
+            RoundedRectangle(cornerRadius: 20)
+                .fill(Color.white) // Use a higher opacity for less gray appearance
                 .frame(width: 320, height: 420)
-                .border(.white, width: 6.0)
-                .cornerRadius(4)
-                .foregroundColor(color.opacity(0.9))
-                .shadow(radius: 4)
-            //make one card stand out
-                .offset(x: stock.symbol == "MSFT" ? 8 : 0, y: stock.symbol == "MSFT" ? -8 : 0)
+                .blur(radius: 5) // Reduce the blur for less background color influence
+                .overlay(
+                    RoundedRectangle(cornerRadius: 20)
+                        .stroke(Color.white, lineWidth: 1) // Border for the glassmorphic effect
+                )
+                .shadow(color: Color.black.opacity(0.2), radius: 10, x: 0, y: 10) // Optional shadow for depth
 
+
+            // Card content
             VStack {
                 Text(stock.symbol)
                     .font(.largeTitle)
                     .bold()
                 Text("Price: $\(stock.regularMarketPrice)")
-
                 
-//                // Create the Chart
+                // Create the Chart
                 Chart {
                     ForEach(stock.history, id: \.date) { history in
                         AreaMark(
@@ -44,7 +44,7 @@ struct CardView: View {
                         .interpolationMethod(.catmullRom) // Optional: Smooths the line
                     }
                 }
-//                 display dates on x achsis (To DO)
+                // display dates on x axis (To DO)
                 
                 //display only every 10th date on X Achsis
                 .chartXAxis {

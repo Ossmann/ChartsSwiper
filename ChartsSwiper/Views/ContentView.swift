@@ -15,15 +15,6 @@ import Foundation
 struct ContentView: View {
     //State Variable so tutorial is only viewed once
     @StateObject private var tutorialManager = TutorialManager()
-    
-    // Enviroment Object so we can get the DB stock CoreData
-    @Environment(\.managedObjectContext) var managedObjectContext
-    //Fetch the Core Data
-    @FetchRequest(
-        entity: DBStock.entity(),
-        sortDescriptors: [NSSortDescriptor(keyPath: \DBStock.symbol, ascending: true)],
-        predicate: NSPredicate(format: "symbol == %@", "AAPL")
-    ) var aaplStocks: FetchedResults<DBStock>
 
     var body: some View {
         if tutorialManager.welcomeScreenShown {
@@ -69,7 +60,6 @@ class TutorialManager: ObservableObject {
             UserDefaults.standard.preferencesScreenShown = true
             preferencesScreenShown = true
         }
-    
 }
 
 // Extension to UserDefaults to simplify the welcome screen flag access
