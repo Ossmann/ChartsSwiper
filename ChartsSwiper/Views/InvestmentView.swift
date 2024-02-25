@@ -25,23 +25,19 @@ struct InvestmentView: View {
                     
                     Spacer().frame(height: 20) // This Spacer pushes the button down
 
-                    
-                    Text("Swipe left to dismiss, or right to add stocks to your watchlist.")
+                    HStack{
+                        Image(systemName: "arrowshape.turn.up.left.circle.fill")
+                            .foregroundColor(.red.opacity(0.8))
+                        Text("Swipe left or right")
+                        Image(systemName: "arrowshape.turn.up.right.circle.fill")
+                            .foregroundColor(.green.opacity(0.8))
+                    }
                     
                     Spacer().frame(height: 40) // This Spacer
                     
                     //Stack of Cards
                     ZStack {
                         
-                        ForEach(viewModel.detailStocks.indices, id: \.self) { index in
-                            let stock = viewModel.detailStocks[index]
-                            CardView(stock: stock)
-                                .rotationEffect(.degrees(index == 0 ? 4 : 0)) // Rotate the first card
-                                .shadow(radius: index == 0 ? 4 : 0)
-                                // Apply a general animation if needed
-                                .animation(Animation.easeInOut(duration: 1.2), value: animate)
-                        }
-
                         if showHandTap { // Only show the image and text if showHandTap is true
                             VStack { // Use VStack to arrange the image and text vertically
                                 Spacer().frame(height: 200) // Adjust spacer as needed to position the VStack
@@ -60,17 +56,26 @@ struct InvestmentView: View {
                                 }
                             }
                         }
+                        
+                        ForEach(viewModel.detailStocks.indices, id: \.self) { index in
+                            let stock = viewModel.detailStocks[index]
+                            CardView(stock: stock)
+                                .rotationEffect(.degrees(index == 0 ? 4 : 0)) // Rotate the first card
+                                .shadow(radius: index == 0 ? 4 : 0)
+                                // Apply a general animation if needed
+                                .animation(Animation.easeInOut(duration: 1.2), value: animate)
+                        }
+
                     }
                     
                     Spacer()
                     
                     // Use a DisclosureGroup for a better UX for Disclaimer
-                    DisclosureGroup("Show Disclaimer", isExpanded: $showDisclaimer) {
+                    DisclosureGroup("                                                       Show Disclaimer", isExpanded: $showDisclaimer) {
                         Text("The information listed here does not constitute investment advice. No guarantee that the data is correct or up to date. Data Source Yahoo Finance RapidAPI.")
                             .font(.footnote)
                             .foregroundColor(.gray)
                             .padding()
-                            .frame(maxWidth: .infinity, alignment: .leading)
                             .transition(.slide)
                     }
                     .accentColor(.gray) // Customize the color to match your app's theme

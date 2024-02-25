@@ -17,7 +17,7 @@ struct CardView: View {
         ZStack {
             // Glassmorphic card background
             RoundedRectangle(cornerRadius: 20)
-                .fill(Color.white) // Use a higher opacity for less gray appearance
+                .fill(color) // Use a higher opacity for less gray appearance
                 .frame(width: 320, height: 420)
                 .blur(radius: 5) // Reduce the blur for less background color influence
                 .overlay(
