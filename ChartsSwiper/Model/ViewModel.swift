@@ -40,13 +40,14 @@ struct DetailStock: Identifiable, Codable {
     let symbol: String
     let regularMarketPrice: Double
     let matchScore: Float
-    let peRatio: Float
     let history: [StockHistory] // Array to hold all the close prices
 }
 
 // Update Core Data with PE Ratios and MatchScores
 class MatchService: ObservableObject {
-    func updateMatchScores(peRatioPreference: Float) {
+    func updateMatchScores(earningsPreference: Float, peRatioPreference: Float, dividendPreference: Float) {
+        print("Starting updateMatchScores with earningsPreference: \(earningsPreference), peRatioPreference: \(peRatioPreference), dividendPreference: \(dividendPreference)")
+        
         let viewContext = PersistenceController.shared.container.viewContext
         
         let fetchRequest: NSFetchRequest<DBStock> = DBStock.fetchRequest()
@@ -54,25 +55,28 @@ class MatchService: ObservableObject {
         do {
             let stocks = try viewContext.fetch(fetchRequest)
             
-            print("test match calculation")
+            // This print statement confirms the function is calculating match scores.
+            print("Calculating match scores for \(stocks.count) stocks.")
             
             for stock in stocks {
-                    stock.matchScore = peRatioPreference * (stock.peRatio ?? 0)
+                stock.matchScore = peRatioPreference * (stock.peRatio ?? 0) + earningsPreference * (stock.earningsGrowth ?? 0) + dividendPreference * (stock.dividendYield ?? 0)
                 
-////                if stock.symbol == "AAPL" || stock.symbol == "GM" {
-//                    print("Match Score for \(String(describing: stock.symbol)):", stock.matchScore)
-//                }
- 
+                // Printing match score for specific stocks for verification.
+                if stock.symbol == "AAPL" || stock.symbol == "GM" {
+                    print("Match Score for \(String(describing: stock.symbol)): \(stock.matchScore)")
+                }
             }
             
             // Save the context after updating match scores
             try viewContext.save()
+            print("Successfully updated match scores and saved the context.")
             
         } catch {
             print("Error fetching stocks: \(error)")
         }
     }
 }
+
 
 //Filter the top 20 stocks based on matchScore
 class StockFilterService {
@@ -177,7 +181,6 @@ class StockAPIService {
                     symbol: stock.symbol ?? "DEFAULT",
                     regularMarketPrice: regularMarketPrice,
                     matchScore: stock.matchScore,
-                    peRatio: stock.peRatio,
                     history: stockHistory
                 )
             } catch {
@@ -206,37 +209,6 @@ class StockCoordinator: ObservableObject {
             detailStocks = try await apiService.fetchDetailsForStocks(stocks: topStocks)
         } catch {
             // Handle any errors, perhaps by setting an error message in a @Published property
-        }
-    }
-}
-
-
-// View Model to get the Preferences of the User and calculate matchScore
-class MatchViewModel: ObservableObject {
-    func updateMatchScores(peRatioPreference: Float) {
-        let viewContext = PersistenceController.shared.container.viewContext
-        
-        let fetchRequest: NSFetchRequest<DBStock> = DBStock.fetchRequest()
-        
-        do {
-            let stocks = try viewContext.fetch(fetchRequest)
-            
-            print("test match calculation")
-            
-            for stock in stocks {
-                if stock.symbol == "AAPL" || stock.symbol == "GM" {
-                    stock.matchScore = peRatioPreference * (stock.peRatio ?? 0)
-                
-                    print("Match Score for \(String(describing: stock.symbol)):", stock.matchScore)
-                }
- 
-            }
-            
-            // Save the context after updating match scores
-            try viewContext.save()
-            
-        } catch {
-            print("Error fetching stocks: \(error)")
         }
     }
 }

@@ -13,7 +13,7 @@ import CoreData
 class DataLoader {
     static func loadCSVAndInsertIntoCoreData(fileName: String, context: NSManagedObjectContext) {
         let csvData = loadCSV(from: fileName)
-//        print("Loaded CSV data: \(csvData)")
+        print("Loaded CSV data")
         context.perform {
             insertIntoCoreData(csvData: csvData, context: context)
             // Handle saving and error catching here
@@ -49,15 +49,22 @@ class DataLoader {
         // Start from index 1 to skip the header row
         for i in 1..<csvData.count {
             let row = csvData[i]
-            guard row.count >= 2,
-                  let peRatio = Float(row[1]) else {
+            guard row.count >= 5,
+                  let peRatio = Float(row[2]), // PE Ratio is in the 3rd column
+                  let dividendYield = Float(row[3]), // Dividend Yield is in the 4th column
+                  let earningsGrowth = Float(row[4]) // Earnings Growth is in the 5th column
+            else {
                 continue
             }
 
             let newStock = DBStock(context: context)
-            newStock.symbol = row[0]
+            newStock.symbol = row[0] // Symbol is in the 1st column
+            newStock.name = row[1] // Name is in the 2nd column
             newStock.peRatio = peRatio
-//            print("Inserted: \(newStock.symbol), PE Ratio: \(newStock.peRatio)")
+            newStock.dividendYield = dividendYield
+            newStock.earningsGrowth = earningsGrowth
+            // Print statement to verify correct data insertion
+            print("Inserted: \(newStock.symbol), Name: \(newStock.name), PE Ratio: \(newStock.peRatio), Dividend Yield: \(newStock.dividendYield), Earnings Growth: \(newStock.earningsGrowth)")
         }
 
         do {
@@ -67,5 +74,6 @@ class DataLoader {
             print("Could not save. \(error), \(error.userInfo)")
         }
     }
+
 
 }

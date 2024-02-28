@@ -60,10 +60,8 @@ struct InvestmentView: View {
                         ForEach(viewModel.detailStocks.indices, id: \.self) { index in
                             let stock = viewModel.detailStocks[index]
                             CardView(stock: stock)
-                                .rotationEffect(.degrees(index == 0 ? 4 : 0)) // Rotate the first card
+                                .rotationEffect(.degrees(index == 5 ? 4 : 0)) // Rotate the first card
                                 .shadow(radius: index == 0 ? 4 : 0)
-                                // Apply a general animation if needed
-                                .animation(Animation.easeInOut(duration: 1.2), value: animate)
                         }
 
                     }
@@ -71,7 +69,7 @@ struct InvestmentView: View {
                     Spacer()
                     
                     // Use a DisclosureGroup for a better UX for Disclaimer
-                    DisclosureGroup("                                                       Show Disclaimer", isExpanded: $showDisclaimer) {
+                    DisclosureGroup("                                                              Show Disclaimer", isExpanded: $showDisclaimer) {
                         Text("The information listed here does not constitute investment advice. No guarantee that the data is correct or up to date. Data Source Yahoo Finance RapidAPI.")
                             .font(.footnote)
                             .foregroundColor(.gray)

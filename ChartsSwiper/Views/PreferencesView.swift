@@ -11,13 +11,20 @@ import Lottie
 struct PreferencesView: View {
     @ObservedObject var tutorialManager: TutorialManager
     
+    @ObservedObject var matchService = MatchService()
+    
+    @State public var earningsPreference: Double = 5
+    @State public var valuePreference: Double = 5
+    @State public var dividendPreference: Double = 5
+    
     @State private var currentQuestion = 1
     @State private var sliderValue: Double = 5
     @State private var sliderMoved: Bool = false
+    
 
 
     var body: some View {
-        VStack(spacing: 60) {
+        VStack {
             Text("What is important to you when investing?")
                 .font(.headline) // Changed to .headline for better visual hierarchy
                 .bold() // Ensures the question is bold
@@ -29,18 +36,18 @@ struct PreferencesView: View {
             switch currentQuestion {
             case 1:
                 LottieView(name: "EarningsGrowth", loopMode: .loop)
-                                    .frame(width: 260, height: 260) // Set your frame here
-                preferenceQuestionView(title: "Growing Revenues", sliderValue: $sliderValue)
+                                    .frame(width: 260, height: 260)
+                preferenceQuestionView(title: "Growing Revenues", sliderValue: $earningsPreference)
             case 2:
                 LottieView(name: "HiddenValue", loopMode: .loop)
-                                    .frame(width: 260, height: 260) // Set your frame here
-                preferenceQuestionView(title: "Hidden Value", sliderValue: $sliderValue)
+                                    .frame(width: 260, height: 260)
+                preferenceQuestionView(title: "Hidden Value", sliderValue: $valuePreference)
             case 3:
                 LottieView(name: "Dividends", loopMode: .loop)
                                     .frame(width: 260, height: 260)
-                preferenceQuestionView(title: "Dividend Income", sliderValue: $sliderValue, isLast: true)
+                preferenceQuestionView(title: "Dividend Income", sliderValue: $dividendPreference, isLast: true)
             default:
-                Button("To my recommendations") {
+                Button("Default") {
                     tutorialManager.setPreferencesScreenShown()
                 }
             }
@@ -62,6 +69,8 @@ struct PreferencesView: View {
             
             if isLast {
                 Button("To my recommendations") {
+//                    print("Button pressed")
+                    matchService.updateMatchScores(earningsPreference: Float(earningsPreference), peRatioPreference: Float(valuePreference), dividendPreference: Float(dividendPreference))
                     tutorialManager.setPreferencesScreenShown()
                 }
                 .foregroundColor(.white)
