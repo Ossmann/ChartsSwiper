@@ -29,10 +29,10 @@ struct CardView: View {
 
             // Card content
             VStack {
-                Text(stock.name)
+                Text(String(stock.name.prefix(16)))
                     .font(.largeTitle)
                     .bold()
-                Text(stock.symbol)
+                Text("Ticker: \(stock.symbol)")
                     .font(.footnote)
                 Text("Price: $" + String(format: "%.2f", stock.regularMarketPrice ?? 0))
                 
