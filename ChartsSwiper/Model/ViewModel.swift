@@ -39,6 +39,7 @@ struct DetailStock: Identifiable, Codable {
     let id = UUID()
     let symbol: String
     let regularMarketPrice: Double
+    let name: String
     let matchScore: Float
     let history: [StockHistory] // Array to hold all the close prices
 }
@@ -180,6 +181,7 @@ class StockAPIService {
                 return DetailStock(
                     symbol: stock.symbol ?? "DEFAULT",
                     regularMarketPrice: regularMarketPrice,
+                    name: stock.name ?? "DEFAULT",
                     matchScore: stock.matchScore,
                     history: stockHistory
                 )

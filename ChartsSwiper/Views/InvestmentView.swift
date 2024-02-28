@@ -33,7 +33,7 @@ struct InvestmentView: View {
                             .foregroundColor(.green.opacity(0.8))
                     }
                     
-                    Spacer().frame(height: 40) // This Spacer
+                    Spacer().frame(height: 40) // This
                     
                     //Stack of Cards
                     ZStack {
@@ -57,12 +57,14 @@ struct InvestmentView: View {
                             }
                         }
                         
+                        //rotate the last card of the stack
                         ForEach(viewModel.detailStocks.indices, id: \.self) { index in
                             let stock = viewModel.detailStocks[index]
                             CardView(stock: stock)
-                                .rotationEffect(.degrees(index == 5 ? 4 : 0)) // Rotate the first card
-                                .shadow(radius: index == 0 ? 4 : 0)
+                                .rotationEffect(.degrees(index == viewModel.detailStocks.count - 1 ? 4 : 0)) // Rotate the last card
+                                .shadow(radius: index == viewModel.detailStocks.count - 1 ? 4 : 0)
                         }
+
 
                     }
                     
