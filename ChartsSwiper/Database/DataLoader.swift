@@ -64,7 +64,7 @@ class DataLoader {
             newStock.dividendYield = dividendYield
             newStock.earningsGrowth = earningsGrowth
             // Print statement to verify correct data insertion
-            print("Inserted: \(newStock.symbol), Name: \(newStock.name), PE Ratio: \(newStock.peRatio), Dividend Yield: \(newStock.dividendYield), Earnings Growth: \(newStock.earningsGrowth)")
+//            print("Inserted: \(newStock.symbol), Name: \(newStock.name), PE Ratio: \(newStock.peRatio), Dividend Yield: \(newStock.dividendYield), Earnings Growth: \(newStock.earningsGrowth)")
         }
 
         do {

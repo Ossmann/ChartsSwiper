@@ -48,13 +48,6 @@ struct InvestmentView: View {
                                     .animation(Animation.easeInOut(duration: 1.2).repeatForever(autoreverses: true), value: animate)
                                 Text("Creating your selection...") // This text will appear below the hand tap image
                             }
-                            .onAppear {
-                                animate = true
-                                DispatchQueue.main.asyncAfter(deadline: .now() + 28) { // Adjusted to 30 seconds as per your code, though you mentioned 5 seconds in the first message
-                                    // Hide the hand tap image and text after 12 seconds
-                                    self.showHandTap = false
-                                }
-                            }
                         }
                         
                         //rotate the last card of the stack
@@ -99,12 +92,21 @@ struct InvestmentView: View {
                 .navigationTitle("Ideas for You") // Sets the navigation bar title
                 .navigationBarTitleDisplayMode(.inline) // Sets the title display mode
                 .onAppear {
+                    print("Test onAPpear Investmentview")
                     Task {
                         await viewModel.displayTopStocks()
                     }
+                    self.showHandTap = true // Ensure the hand tap is shown every time the view appears
+                        animate = true // Start the animation
+                    
+                    // Start a new hide action
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 28) {
+                            self.showHandTap = false // Hide the hand tap image and text after 28 seconds
+                        }
                 }
                 // Apply the gradient background to the entire VStack
                 .background(BackgroundNavigationView())
             } // End of the NavigationView
+            .navigationViewStyle(StackNavigationViewStyle()) // This forces the navigation view to display full-screen even on iPad
         }
 }

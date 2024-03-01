@@ -81,7 +81,11 @@ class MatchService: ObservableObject {
 
 //Filter the top 20 stocks based on matchScore
 class StockFilterService {
+    public var currentOffset = 0 // Keeps track of the current offset
+    private let fetchLimit = 3 // The number of stocks to fetch per call
+
     func getTopStocks() async throws -> [DBStock] {
+        print("offset \(currentOffset)")
         let viewContext = PersistenceController.shared.container.viewContext
         
         let fetchRequest: NSFetchRequest<DBStock> = DBStock.fetchRequest()
@@ -89,26 +93,34 @@ class StockFilterService {
         let sortDescriptor = NSSortDescriptor(key: #keyPath(DBStock.matchScore), ascending: false)
         fetchRequest.sortDescriptors = [sortDescriptor]
         
-        // Set the fetch limit to 20 to get only the top 20 stocks
-        fetchRequest.fetchLimit = 4
+        // Set the fetch limit and fetch offset
+        fetchRequest.fetchLimit = fetchLimit
+        fetchRequest.fetchOffset = currentOffset // Use the current offset to skip previously fetched stocks
         
         do {
-            // Fetch the top 20 stocks
-            let topTwentyStocks = try viewContext.fetch(fetchRequest)
-            print("test Filtering")
-            print(topTwentyStocks)
-            return topTwentyStocks
+            // Fetch the stocks based on the current offset
+            let stocks = try viewContext.fetch(fetchRequest)
+            // Prepare for the next fetch
+            currentOffset += fetchLimit // Increment the offset for the next call
+            return stocks
         } catch {
             print("Error fetching stocks: \(error)")
             throw error
         }
     }
+
+    // Optional: Method to reset the pagination
+    func resetPagination() {
+        currentOffset = 0
+    }
 }
+
 
 //Fetch Price and Historical Prices for 20 selected stocks
 class StockAPIService {
     // Fetch data from the API
     func fetchDetailsForStocks(stocks: [DBStock]) async throws -> [DetailStock] {
+        print(stocks)
         print("Fetching API key...") // Print statement 1
         guard let apiKey = fetchAPIKey() else {
             throw NSError(domain: "StockAPIService", code: 0, userInfo: [NSLocalizedDescriptionKey: "API key is missing"])
@@ -137,9 +149,9 @@ class StockAPIService {
         return dict["APIKey"] as? String
     }
     
-    //Get the price from a stock from the API
+    //Get the price from a stock from the API for 20 stocks on the card
     private func fetchDetailForStock(stock: DBStock, apiKey: String) async throws -> DetailStock {
-//        print("Fetching details for stock: \(stock.symbol)")
+        print("Fetching details for stock: \(stock.symbol)")
         let urlSymbol = stock.symbol ?? "AAPL"
         let urlString = "https://yahoo-finance15.p.rapidapi.com/api/v1/markets/stock/history?symbol=\(urlSymbol)&interval=1d&diffandsplits=false"
         guard let url = URL(string: urlString) else {
@@ -201,18 +213,33 @@ class StockAPIService {
 //Bring together API Stocks and Stocks from CoreData
 class StockCoordinator: ObservableObject {
     @Published var detailStocks: [DetailStock] = []
+    private var fetchedStockSymbols: Set<String> = [] // Track fetched stock symbols
     private let filterService = StockFilterService()
     private let apiService = StockAPIService()
 
     // This method can be called from a SwiftUI view directly to load stocks
     func displayTopStocks() async {
-        do {
-            let topStocks = try await filterService.getTopStocks()
-            detailStocks = try await apiService.fetchDetailsForStocks(stocks: topStocks)
-        } catch {
-            // Handle any errors, perhaps by setting an error message in a @Published property
+            do {
+                // Fetch the top stocks
+                let topStocks = try await filterService.getTopStocks()
+                // Filter out stocks that have already had their details fetched
+                let newStocks = topStocks.filter { !fetchedStockSymbols.contains($0.symbol ?? "") }
+                
+                // Fetch details for new stocks only
+                if !newStocks.isEmpty {
+                    let newDetailStocks = try await apiService.fetchDetailsForStocks(stocks: newStocks)
+                    // Append the newly fetched details to the existing array
+                    detailStocks.append(contentsOf: newDetailStocks)
+                    // Update the set of fetched stock symbols
+                    for detailStock in newDetailStocks {
+                        fetchedStockSymbols.insert(detailStock.symbol)
+                    }
+                }
+            } catch {
+                // Handle any errors, perhaps by setting an error message in a @Published property
+                print("Error fetching stock details: \(error)")
+            }
         }
-    }
 }
 
 
