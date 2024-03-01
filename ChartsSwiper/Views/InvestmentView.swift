@@ -72,7 +72,7 @@ struct InvestmentView: View {
                     
                     // Use a DisclosureGroup for a better UX for Disclaimer
                     DisclosureGroup("                                                              Show Disclaimer", isExpanded: $showDisclaimer) {
-                        Text("The information listed here does not constitute investment advice. No guarantee that the data is correct or up to date. Data Source Yahoo Finance RapidAPI.")
+                        Text("The information listed here does not constitute investment advice. No guarantee that the data is correct or up to date. Data Source RapidAPI.")
                             .font(.footnote)
                             .foregroundColor(.gray)
                             .padding()
