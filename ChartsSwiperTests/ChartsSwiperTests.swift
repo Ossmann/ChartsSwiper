@@ -6,7 +6,7 @@
 //
 
 import XCTest
-@testable import ChartsSwiper
+@testable import SearchLight
 
 final class ChartsSwiperTests: XCTestCase {
 

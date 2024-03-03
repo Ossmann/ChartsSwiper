@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "8011C5972AF5D64C00292467"
-               BuildableName = "ChartsSwiper.app"
-               BlueprintName = "ChartsSwiper"
-               ReferencedContainer = "container:Searchlight.xcodeproj">
+               BuildableName = "SearchLight.app"
+               BlueprintName = "SearchLight"
+               ReferencedContainer = "container:SearchLight.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -35,9 +35,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "8011C5AC2AF5D64D00292467"
-               BuildableName = "ChartsSwiperTests.xctest"
-               BlueprintName = "ChartsSwiperTests"
-               ReferencedContainer = "container:Searchlight.xcodeproj">
+               BuildableName = "ChartsSwiperSearchLights.xctest"
+               BlueprintName = "ChartsSwiperSearchLights"
+               ReferencedContainer = "container:SearchLight.xcodeproj">
             </BuildableReference>
          </TestableReference>
          <TestableReference
@@ -46,9 +46,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "8011C5B62AF5D64D00292467"
-               BuildableName = "ChartsSwiperUITests.xctest"
-               BlueprintName = "ChartsSwiperUITests"
-               ReferencedContainer = "container:Searchlight.xcodeproj">
+               BuildableName = "ChartsSwiperUISearchLights.xctest"
+               BlueprintName = "ChartsSwiperUISearchLights"
+               ReferencedContainer = "container:SearchLight.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -68,9 +68,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "8011C5972AF5D64C00292467"
-            BuildableName = "ChartsSwiper.app"
-            BlueprintName = "ChartsSwiper"
-            ReferencedContainer = "container:Searchlight.xcodeproj">
+            BuildableName = "SearchLight.app"
+            BlueprintName = "SearchLight"
+            ReferencedContainer = "container:SearchLight.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <EnvironmentVariables>
@@ -92,9 +92,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "8011C5972AF5D64C00292467"
-            BuildableName = "ChartsSwiper.app"
-            BlueprintName = "ChartsSwiper"
-            ReferencedContainer = "container:Searchlight.xcodeproj">
+            BuildableName = "SearchLight.app"
+            BlueprintName = "SearchLight"
+            ReferencedContainer = "container:SearchLight.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

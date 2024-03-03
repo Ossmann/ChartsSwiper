@@ -8,7 +8,7 @@
 import SwiftUI
 
 @main
-struct ChartsSwiperApp: App {
+struct SearchLightApp: App {
     let persistenceController = PersistenceController.shared
     
     var body: some Scene {

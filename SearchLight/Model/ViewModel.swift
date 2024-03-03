@@ -82,7 +82,7 @@ class MatchService: ObservableObject {
 //Filter the top 20 stocks based on matchScore
 class StockFilterService {
     public var currentOffset = 0 // Keeps track of the current offset
-    private let fetchLimit = 3 // The number of stocks to fetch per call
+    private let fetchLimit = 8 // The number of stocks to fetch per call
 
     func getTopStocks() async throws -> [DBStock] {
         print("offset \(currentOffset)")
