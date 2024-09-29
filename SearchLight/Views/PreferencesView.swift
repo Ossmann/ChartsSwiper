@@ -10,9 +10,7 @@ import Lottie
 
 struct PreferencesView: View {
     @ObservedObject var tutorialManager: TutorialManager
-    
-    @ObservedObject var matchService = MatchService()
-    
+        
     @State public var earningsPreference: Double = 5
     @State public var valuePreference: Double = 5
     @State public var dividendPreference: Double = 5
@@ -73,7 +71,6 @@ struct PreferencesView: View {
                 if isLast {
                     
                         Button("To my recommendations") {
-                            matchService.updateMatchScores(earningsPreference: Float(earningsPreference), peRatioPreference: Float(valuePreference), dividendPreference: Float(dividendPreference))
                             tutorialManager.setPreferencesScreenShown()
                         }
                         .foregroundColor(.white)

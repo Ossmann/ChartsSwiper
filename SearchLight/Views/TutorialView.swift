@@ -20,7 +20,7 @@ struct TutorialView: View {
     var body: some View {
         ZStack {
             
-            // Content
+            // Content of the tutorial Onboarding. 3 different steps.
             VStack(spacing: 20) {
                 if showFirst {
                     glassmorphicHStack(

@@ -5,7 +5,7 @@ struct CardView: View {
     var stock: DetailStock
     @State private var offset = CGSize.zero
     @State private var color: Color = .white
-    @StateObject private var watchlistAdditionService = WatchlistAdditionService()
+    @EnvironmentObject var watchlistManager: WatchlistManager
     
     var displayedDates: [String] {
         stock.history.enumerated().compactMap { index, history in
@@ -34,7 +34,7 @@ struct CardView: View {
                     .bold()
                 Text("Ticker: \(stock.symbol)")
                     .font(.footnote)
-                Text("Price: $" + String(format: "%.2f", stock.regularMarketPrice ?? 0))
+                Text("Price: $" + String(format: "%.2f", stock.regularMarketPrice))
                 
                 // Create the Chart
                 Chart {
@@ -101,7 +101,7 @@ struct CardView: View {
         // Swipe right to add a new stock to the Watchlist
         case 150...500:
             print("\(stock.symbol) added")
-            watchlistAdditionService.addToWatchlist(cardStock: stock)
+            watchlistManager.addStock(stock)
             offset = CGSize(width: 500, height: 0)
         default:
             offset = .zero

@@ -17,12 +17,9 @@
 		8011C5BC2AF5D64D00292467 /* ChartsSwiperUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8011C5BB2AF5D64D00292467 /* ChartsSwiperUITests.swift */; };
 		8011C5BE2AF5D64D00292467 /* ChartsSwiperUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8011C5BD2AF5D64D00292467 /* ChartsSwiperUITestsLaunchTests.swift */; };
 		8011C5CB2AF5D9FE00292467 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8011C5CA2AF5D9FE00292467 /* CardView.swift */; };
-		8011C5CE2AF6471D00292467 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8011C5CD2AF6471D00292467 /* ViewController.swift */; };
 		8011C5D02AF647D100292467 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8011C5CF2AF647D100292467 /* ViewModel.swift */; };
 		8011C5D32AF6DDCA00292467 /* InvestmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8011C5D22AF6DDCA00292467 /* InvestmentView.swift */; };
 		802685C32B312CF600370F61 /* Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = 802685C22B312CF600370F61 /* Config.plist */; };
-		802685CE2B366BFD00370F61 /* DataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802685CD2B366BFD00370F61 /* DataLoader.swift */; };
-		802685D02B36802200370F61 /* top_2000_stocks_normalized.csv in Resources */ = {isa = PBXBuildFile; fileRef = 802685CF2B36802200370F61 /* top_2000_stocks_normalized.csv */; };
 		802685D22B36BDB100370F61 /* PreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802685D12B36BDB100370F61 /* PreferencesView.swift */; };
 		802685D42B36D2A100370F61 /* TutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802685D32B36D2A100370F61 /* TutorialView.swift */; };
 		803ECB022B8A1B7F0087A2ED /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803ECB012B8A1B7F0087A2ED /* BackgroundView.swift */; };
@@ -34,6 +31,7 @@
 		806845E02AF7252A005844EF /* ListRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806845DF2AF7252A005844EF /* ListRowView.swift */; };
 		8078B8F32B8A2F3F00257BF6 /* Dividends.json in Resources */ = {isa = PBXBuildFile; fileRef = 8078B8F12B8A2F3F00257BF6 /* Dividends.json */; };
 		8078B8F72B8A30E600257BF6 /* EarningsGrowth.json in Resources */ = {isa = PBXBuildFile; fileRef = 8078B8F62B8A30E600257BF6 /* EarningsGrowth.json */; };
+		80C245912CA929AD00F442B6 /* dummyStocks.json in Resources */ = {isa = PBXBuildFile; fileRef = 80C245902CA929AD00F442B6 /* dummyStocks.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,12 +65,9 @@
 		8011C5BB2AF5D64D00292467 /* ChartsSwiperUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartsSwiperUITests.swift; sourceTree = "<group>"; };
 		8011C5BD2AF5D64D00292467 /* ChartsSwiperUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartsSwiperUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		8011C5CA2AF5D9FE00292467 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
-		8011C5CD2AF6471D00292467 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		8011C5CF2AF647D100292467 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		8011C5D22AF6DDCA00292467 /* InvestmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvestmentView.swift; sourceTree = "<group>"; };
 		802685C22B312CF600370F61 /* Config.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Config.plist; sourceTree = "<group>"; };
-		802685CD2B366BFD00370F61 /* DataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataLoader.swift; sourceTree = "<group>"; };
-		802685CF2B36802200370F61 /* top_2000_stocks_normalized.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = top_2000_stocks_normalized.csv; sourceTree = "<group>"; };
 		802685D12B36BDB100370F61 /* PreferencesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesView.swift; sourceTree = "<group>"; };
 		802685D32B36D2A100370F61 /* TutorialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialView.swift; sourceTree = "<group>"; };
 		803ECB012B8A1B7F0087A2ED /* BackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundView.swift; sourceTree = "<group>"; };
@@ -83,6 +78,8 @@
 		806845DF2AF7252A005844EF /* ListRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListRowView.swift; sourceTree = "<group>"; };
 		8078B8F12B8A2F3F00257BF6 /* Dividends.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Dividends.json; sourceTree = "<group>"; };
 		8078B8F62B8A30E600257BF6 /* EarningsGrowth.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = EarningsGrowth.json; sourceTree = "<group>"; };
+		80C245902CA929AD00F442B6 /* dummyStocks.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = dummyStocks.json; sourceTree = "<group>"; };
+		80F3AD9E2B9C334100EAADA2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +132,7 @@
 		8011C59A2AF5D64C00292467 /* SearchLight */ = {
 			isa = PBXGroup;
 			children = (
+				80F3AD9E2B9C334100EAADA2 /* Info.plist */,
 				802685CC2B36612500370F61 /* Database */,
 				8011C5D12AF647DE00292467 /* Model */,
 				8011C5CC2AF5FA4600292467 /* Views */,
@@ -179,7 +177,6 @@
 		8011C5CC2AF5FA4600292467 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				8011C5CD2AF6471D00292467 /* ViewController.swift */,
 				8011C59D2AF5D64C00292467 /* ContentView.swift */,
 				802685D32B36D2A100370F61 /* TutorialView.swift */,
 				802685D12B36BDB100370F61 /* PreferencesView.swift */,
@@ -204,8 +201,7 @@
 			isa = PBXGroup;
 			children = (
 				8011C5A62AF5D64D00292467 /* SearchLight.xcdatamodeld */,
-				802685CF2B36802200370F61 /* top_2000_stocks_normalized.csv */,
-				802685CD2B366BFD00370F61 /* DataLoader.swift */,
+				80C245902CA929AD00F442B6 /* dummyStocks.json */,
 			);
 			path = Database;
 			sourceTree = "<group>";
@@ -321,9 +317,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				8011C5A32AF5D64D00292467 /* Preview Assets.xcassets in Resources */,
-				802685D02B36802200370F61 /* top_2000_stocks_normalized.csv in Resources */,
 				8078B8F32B8A2F3F00257BF6 /* Dividends.json in Resources */,
 				802685C32B312CF600370F61 /* Config.plist in Resources */,
+				80C245912CA929AD00F442B6 /* dummyStocks.json in Resources */,
 				8078B8F72B8A30E600257BF6 /* EarningsGrowth.json in Resources */,
 				8011C5A02AF5D64D00292467 /* Assets.xcassets in Resources */,
 				803ECB092B8A29210087A2ED /* HiddenValue.json in Resources */,
@@ -351,7 +347,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8011C5CE2AF6471D00292467 /* ViewController.swift in Sources */,
 				802685D42B36D2A100370F61 /* TutorialView.swift in Sources */,
 				802685D22B36BDB100370F61 /* PreferencesView.swift in Sources */,
 				806845DE2AF7248C005844EF /* WatchListView.swift in Sources */,
@@ -361,7 +356,6 @@
 				803ECB0B2B8A29810087A2ED /* LottieView.swift in Sources */,
 				8011C59C2AF5D64C00292467 /* SearchLightApp.swift in Sources */,
 				8011C5CB2AF5D9FE00292467 /* CardView.swift in Sources */,
-				802685CE2B366BFD00370F61 /* DataLoader.swift in Sources */,
 				803ECB022B8A1B7F0087A2ED /* BackgroundView.swift in Sources */,
 				806845E02AF7252A005844EF /* ListRowView.swift in Sources */,
 				8011C5D02AF647D100292467 /* ViewModel.swift in Sources */,
@@ -525,15 +519,16 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"SearchLight/Preview Content\"";
+				DEVELOPMENT_TEAM = 7UQALHB2H5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "";
+				INFOPLIST_FILE = SearchLight/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "";
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -555,15 +550,16 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"SearchLight/Preview Content\"";
+				DEVELOPMENT_TEAM = 7UQALHB2H5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "";
+				INFOPLIST_FILE = SearchLight/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "";
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

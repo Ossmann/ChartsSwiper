@@ -15,6 +15,7 @@ import Foundation
 struct ContentView: View {
     //State Variable so tutorial is only viewed once
     @StateObject private var tutorialManager = TutorialManager()
+    
 
     var body: some View {
         if tutorialManager.welcomeScreenShown {

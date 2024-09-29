@@ -1,0 +1,134 @@
+[
+    {
+      "symbol": "AAPL",
+      "regularMarketPrice": 175.50,
+      "name": "Apple Inc.",
+      "matchScore": 0.98,
+      "history": [
+        {
+          "timestamp": 1695609600,
+          "date": "2023-09-25",
+          "close": 174.50,
+          "volume": 50000000
+        },
+        {
+          "timestamp": 1695696000,
+          "date": "2023-09-26",
+          "close": 175.20,
+          "volume": 45000000
+        },
+        {
+          "timestamp": 1695782400,
+          "date": "2023-09-27",
+          "close": 176.80,
+          "volume": 47000000
+        }
+      ]
+    },
+    {
+      "symbol": "TSLA",
+      "regularMarketPrice": 245.80,
+      "name": "Tesla Inc.",
+      "matchScore": 0.97,
+      "history": [
+        {
+          "timestamp": 1695609600,
+          "date": "2023-09-25",
+          "close": 242.30,
+          "volume": 40000000
+        },
+        {
+          "timestamp": 1695696000,
+          "date": "2023-09-26",
+          "close": 244.60,
+          "volume": 41000000
+        },
+        {
+          "timestamp": 1695782400,
+          "date": "2023-09-27",
+          "close": 245.10,
+          "volume": 42000000
+        }
+      ]
+    },
+    {
+      "symbol": "GOOGL",
+      "regularMarketPrice": 138.50,
+      "name": "Alphabet Inc.",
+      "matchScore": 0.95,
+      "history": [
+        {
+          "timestamp": 1695609600,
+          "date": "2023-09-25",
+          "close": 136.00,
+          "volume": 30000000
+        },
+        {
+          "timestamp": 1695696000,
+          "date": "2023-09-26",
+          "close": 137.50,
+          "volume": 32000000
+        },
+        {
+          "timestamp": 1695782400,
+          "date": "2023-09-27",
+          "close": 138.00,
+          "volume": 33000000
+        }
+      ]
+    },
+    {
+      "symbol": "AMZN",
+      "regularMarketPrice": 130.20,
+      "name": "Amazon.com Inc.",
+      "matchScore": 0.96,
+      "history": [
+        {
+          "timestamp": 1695609600,
+          "date": "2023-09-25",
+          "close": 128.30,
+          "volume": 20000000
+        },
+        {
+          "timestamp": 1695696000,
+          "date": "2023-09-26",
+          "close": 129.80,
+          "volume": 21000000
+        },
+        {
+          "timestamp": 1695782400,
+          "date": "2023-09-27",
+          "close": 130.10,
+          "volume": 21500000
+        }
+      ]
+    },
+    {
+      "symbol": "MSFT",
+      "regularMarketPrice": 320.00,
+      "name": "Microsoft Corporation",
+      "matchScore": 0.99,
+      "history": [
+        {
+          "timestamp": 1695609600,
+          "date": "2023-09-25",
+          "close": 315.00,
+          "volume": 25000000
+        },
+        {
+          "timestamp": 1695696000,
+          "date": "2023-09-26",
+          "close": 318.50,
+          "volume": 26000000
+        },
+        {
+          "timestamp": 1695782400,
+          "date": "2023-09-27",
+          "close": 319.50,
+          "volume": 27000000
+        }
+      ]
+    }
+
+]
+

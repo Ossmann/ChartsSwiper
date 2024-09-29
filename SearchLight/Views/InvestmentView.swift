@@ -11,7 +11,7 @@ import CoreData
 
 
 struct InvestmentView: View {
-    @StateObject private var viewModel = StockCoordinator()
+    @EnvironmentObject var viewModel: StockCoordinator
     @State private var animate = false  // State variable to control animation
     @State private var showDisclaimer = false     // State to keep track of whether the disclaimer should be shown
     @State private var showHandTap = true // State to control the visibility of the hand tap image
@@ -50,12 +50,12 @@ struct InvestmentView: View {
                             }
                         }
                         
-                        //rotate the last card of the stack
-                        ForEach(viewModel.detailStocks.indices, id: \.self) { index in
-                            let stock = viewModel.detailStocks[index]
+                        // Iterate through the `stocks` array and create a `CardView` for each stock
+                        ForEach(viewModel.stocks.indices, id: \.self) { index in
+                            let stock = viewModel.stocks[index]
                             CardView(stock: stock)
-                                .rotationEffect(.degrees(index == viewModel.detailStocks.count - 1 ? 4 : 0)) // Rotate the last card
-                                .shadow(radius: index == viewModel.detailStocks.count - 1 ? 4 : 0)
+                                .rotationEffect(.degrees(index == viewModel.stocks.count - 1 ? 4 : 0)) // Rotate the last card
+                                .shadow(radius: index == viewModel.stocks.count - 1 ? 4 : 0)
                         }
 
 
@@ -93,9 +93,7 @@ struct InvestmentView: View {
                 .navigationBarTitleDisplayMode(.inline) // Sets the title display mode
                 .onAppear {
                     print("Test onAPpear Investmentview")
-                    Task {
-                        await viewModel.displayTopStocks()
-                    }
+    
                     self.showHandTap = true // Ensure the hand tap is shown every time the view appears
                         animate = true // Start the animation
                     
