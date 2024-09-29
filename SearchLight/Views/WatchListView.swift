@@ -10,6 +10,7 @@ import CoreData
 
 struct WatchListView: View {
     @EnvironmentObject var watchlistManager: WatchlistManager
+    var tutorialManager: TutorialManager
 
     var body: some View {
         List {
@@ -46,6 +47,18 @@ struct WatchListView: View {
                 .onDelete(perform: removeStocks)
             }
         }
+        // Button to Reset Preferences
+        Button(action: {
+            tutorialManager.resetPreferencesScreenShown()
+        }) {
+            Label("Reset Filter", systemImage: "gear.badge.checkmark")
+                .foregroundColor(.white)
+                .padding()
+                .frame(maxWidth: .infinity) // Expand to take available space
+                .background(Color.black)
+                .cornerRadius(10)
+        }
+        .padding(.bottom)
         .navigationTitle("Watchlist")
         // Apply the gradient background if you have a custom view for it
         .background(BackgroundNavigationView())

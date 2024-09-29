@@ -20,7 +20,7 @@ struct ContentView: View {
     var body: some View {
         if tutorialManager.welcomeScreenShown {
             if tutorialManager.preferencesScreenShown {
-                InvestmentView()
+                InvestmentView(tutorialManager: tutorialManager)
             } else {
                 PreferencesView(tutorialManager: tutorialManager)
             }
@@ -60,6 +60,12 @@ class TutorialManager: ObservableObject {
     func setPreferencesScreenShown() {
             UserDefaults.standard.preferencesScreenShown = true
             preferencesScreenShown = true
+        }
+    
+    func resetPreferencesScreenShown() {
+            UserDefaults.standard.preferencesScreenShown = false
+            preferencesScreenShown = false
+
         }
 }
 
