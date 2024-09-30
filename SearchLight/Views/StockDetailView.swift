@@ -6,27 +6,64 @@
 //
 
 import SwiftUI
+import Charts
 
 // Define a StockDetailView to show more information about the stock
 struct StockDetailView: View {
     let stock: DetailStock
-
-    var body: some View {
-        VStack(alignment: .leading) {
-            Text(stock.name)
-                .font(.largeTitle)
-                .padding()
-            Text("Symbol: \(stock.symbol)")
-                .font(.title2)
-                .padding(.horizontal)
-            Text("Current Price: \(String(format: "%.2f", stock.regularMarketPrice)) USD")
-                .font(.title3)
-                .padding(.horizontal)
-
-            Spacer()
+    
+    // Computed property to extract every 10th date from the stock history
+    var displayedDates: [String] {
+        stock.history.enumerated().compactMap { index, history in
+            index % 10 == 0 ? history.date : nil
         }
     }
+
+    var body: some View {
+    
+        VStack {
+            //Stock name with a maximum of 16 characters
+            Text(String(stock.name))
+                .font(.largeTitle)
+                .bold()
+                .padding()
+                .frame(maxWidth: .infinity) // Ensures it takes up the full width
+                .multilineTextAlignment(.center) // Center the text within the frame
+            Text("Ticker: \(stock.symbol)")
+            Text("Price: $" + String(format: "%.2f", stock.regularMarketPrice))
+            
+            // Create the Chart
+            Chart {
+                ForEach(stock.history, id: \.date) { history in
+                    AreaMark(
+                        x: .value("Date", history.date),
+                        y: .value("Close", Double(history.close) ?? 0)
+                    )
+                    .interpolationMethod(.catmullRom) // Optional: Smooths the line
+                }
+            }
+            // Display dates on X-axis
+            .chartXAxis {
+                AxisMarks(values: .automatic) { value in
+                    if let date = value.as(String.self), displayedDates.contains(date) {
+                        AxisValueLabel()
+                    }
+                }
+            }
+            
+            // Display $ signs on Y-axis
+            .chartYAxis {
+                AxisMarks(preset: .extended, position: .leading, values: .automatic) {
+                    AxisGridLine()
+                    AxisValueLabel(format: .currency(code: "USD"))
+                }
+            }
+            .frame(width: 260, height: 200) // Adjust chart size
+        }
+        .padding()
+    }
 }
+
 
 
 //PREVIEW
