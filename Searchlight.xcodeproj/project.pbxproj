@@ -19,6 +19,7 @@
 		8011C5CB2AF5D9FE00292467 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8011C5CA2AF5D9FE00292467 /* CardView.swift */; };
 		8011C5D02AF647D100292467 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8011C5CF2AF647D100292467 /* ViewModel.swift */; };
 		8011C5D32AF6DDCA00292467 /* InvestmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8011C5D22AF6DDCA00292467 /* InvestmentView.swift */; };
+		801FB5592CAA191A0051E5D6 /* StockDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 801FB5582CAA191A0051E5D6 /* StockDetailView.swift */; };
 		802685C32B312CF600370F61 /* Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = 802685C22B312CF600370F61 /* Config.plist */; };
 		802685D22B36BDB100370F61 /* PreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802685D12B36BDB100370F61 /* PreferencesView.swift */; };
 		802685D42B36D2A100370F61 /* TutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802685D32B36D2A100370F61 /* TutorialView.swift */; };
@@ -67,6 +68,7 @@
 		8011C5CA2AF5D9FE00292467 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		8011C5CF2AF647D100292467 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		8011C5D22AF6DDCA00292467 /* InvestmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvestmentView.swift; sourceTree = "<group>"; };
+		801FB5582CAA191A0051E5D6 /* StockDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockDetailView.swift; sourceTree = "<group>"; };
 		802685C22B312CF600370F61 /* Config.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Config.plist; sourceTree = "<group>"; };
 		802685D12B36BDB100370F61 /* PreferencesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesView.swift; sourceTree = "<group>"; };
 		802685D32B36D2A100370F61 /* TutorialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialView.swift; sourceTree = "<group>"; };
@@ -183,6 +185,7 @@
 				8011C5CA2AF5D9FE00292467 /* CardView.swift */,
 				8011C5D22AF6DDCA00292467 /* InvestmentView.swift */,
 				806845DD2AF7248C005844EF /* WatchListView.swift */,
+				801FB5582CAA191A0051E5D6 /* StockDetailView.swift */,
 				806845DF2AF7252A005844EF /* ListRowView.swift */,
 				803ECB0A2B8A29810087A2ED /* LottieView.swift */,
 			);
@@ -348,6 +351,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				802685D42B36D2A100370F61 /* TutorialView.swift in Sources */,
+				801FB5592CAA191A0051E5D6 /* StockDetailView.swift in Sources */,
 				802685D22B36BDB100370F61 /* PreferencesView.swift in Sources */,
 				806845DE2AF7248C005844EF /* WatchListView.swift in Sources */,
 				8011C5A82AF5D64D00292467 /* SearchLight.xcdatamodeld in Sources */,

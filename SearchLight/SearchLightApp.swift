@@ -17,9 +17,7 @@ struct SearchLightApp: App {
         WindowGroup {
             BackgroundView {
                 ContentView()
-                    // Pass the managed object context to ContentView if needed
                     .environment(\.managedObjectContext, persistenceController.container.viewContext)
-                    // Pass the watchlist manager as an environment object
                     .environmentObject(watchlistManager)
                     .environmentObject(stockCoordinator) // Pass StockCoordinator as an environment object
             }
